@@ -21,7 +21,6 @@
             --safe-bottom: env(safe-area-inset-bottom);
         }
 
-        /* Base & Reset */
         * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: smooth; }
         body {
@@ -36,7 +35,6 @@
 
         /* --- COMPONENTS --- */
         
-        /* Badges & Tags */
         .dish-badge {
             display: inline-flex; align-items: center; gap: 5px;
             background: #FFF0F0; color: #D32F2F;
@@ -51,7 +49,7 @@
         .train { background: var(--success); }
         .taxi { background: #FF9500; }
 
-        /* Map Links */
+        /* Links */
         a.map-link {
             color: inherit; text-decoration: none;
             border-bottom: 2px solid rgba(0,0,0,0.1);
@@ -59,9 +57,16 @@
         }
         a.map-link:active { border-color: var(--accent); color: var(--accent); }
 
+        a.wiki-btn {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: #E5E5EA; color: #333;
+            text-decoration: none; font-size: 0.75rem; font-weight: 600;
+            padding: 2px 8px; border-radius: 6px; margin-left: 8px;
+            vertical-align: middle;
+        }
+
         /* --- LAYOUT --- */
 
-        /* Header */
         header {
             height: 60vh;
             background: url('assets/tokyo_neon_night_1769802691637.png') center/cover no-repeat fixed;
@@ -82,7 +87,6 @@
             text-shadow: 0 10px 30px rgba(0,0,0,0.5); line-height: 1;
         }
         
-        /* Navigation */
         .nav-strip {
             position: sticky; top: 0; z-index: 900;
             background: rgba(255, 255, 255, 0.95);
@@ -102,7 +106,6 @@
 
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
 
-        /* Cards */
         .card {
             background: var(--card-bg); border-radius: 24px;
             padding: 25px; margin-bottom: 20px;
@@ -115,7 +118,6 @@
         }
         .card h3 { margin: 0 0 20px; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
 
-        /* Timeline */
         .timeline-item { display: flex; gap: 15px; margin-bottom: 25px; position: relative; }
         .timeline-item::after {
             content: ''; position: absolute; left: 24px; top: 35px; bottom: -35px; width: 2px; background: #F2F2F7;
@@ -132,7 +134,6 @@
         }
         .time-badge span { font-size: 0.6rem; color: #86868B; margin-top: 2px; }
 
-        /* Section Headers */
         .city-header {
             margin: 50px 0 20px; padding: 20px; text-align: center;
             background: white; border-radius: 20px; box-shadow: var(--shadow);
@@ -141,9 +142,7 @@
         #tokyo .city-header { border-color: var(--primary); }
         #osaka .city-header { border-color: var(--accent); }
 
-        /* --- SMART WALLET & INTERACTIVE --- */
-        
-        /* Wallet Card */
+        /* Wallet */
         .wallet-card {
             background: linear-gradient(135deg, #1C1C1E, #2C2C2E);
             color: white; padding: 25px; border-radius: 24px;
@@ -151,28 +150,22 @@
         }
         .wallet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .wallet-balance { font-size: 2.5rem; font-weight: 800; line-height: 1; }
-        .wallet-sub { color: #86868B; font-size: 0.9rem; font-weight: 600; }
         
-        .wallet-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
         .wallet-btn {
             background: rgba(255,255,255,0.1); border: none; color: white;
             padding: 12px; border-radius: 12px; font-weight: 700; font-size: 0.9rem;
-            cursor: pointer; transition: background 0.2s;
+            cursor: pointer; width: 100%;
         }
-        .wallet-btn:active { background: rgba(255,255,255,0.2); }
         .wallet-btn.add { background: var(--success); color: white; }
         
-        /* Checklist */
+        /* Interactive */
         .checklist-item {
             display: flex; align-items: center; gap: 12px;
             padding: 12px 0; border-bottom: 1px solid #F2F2F7;
         }
-        .checklist-item input[type="checkbox"] {
-            width: 24px; height: 24px; accent-color: var(--success);
-        }
+        .checklist-item input[type="checkbox"] { width: 24px; height: 24px; accent-color: var(--success); }
         .checklist-item.checked span { text-decoration: line-through; color: #aaa; }
 
-        /* Emergency */
         .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .ems-btn {
             background: #FF3B30; color: white; padding: 15px;
@@ -180,7 +173,6 @@
             font-weight: 800; font-size: 1.2rem;
         }
 
-        /* Widgets */
         .live-widgets {
             position: fixed; bottom: calc(20px + var(--safe-bottom)); right: 20px;
             display: flex; flex-direction: column; gap: 10px; z-index: 999;
@@ -202,14 +194,9 @@
         .modal-content {
             background: white; width: 90%; max-width: 400px;
             padding: 30px; border-radius: 24px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
         }
         .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; font-weight: 700; margin-bottom: 8px; font-size: 0.9rem; }
-        .input-group input, .input-group select {
-            width: 100%; padding: 12px; border: 1px solid #E5E5EA;
-            border-radius: 12px; font-size: 1rem; font-family: inherit;
-        }
+        .input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 12px; font-size: 1rem; }
         .modal-actions { display: flex; gap: 10px; margin-top: 20px; }
 
         @media(max-width:600px){ h1 { font-size: 2.8rem; } }
@@ -217,19 +204,16 @@
 </head>
 <body>
 
-    <!-- WIDGETS -->
     <div class="live-widgets">
         <div class="widget-badge" id="fujiWidget" onclick="checkFujiVisibility()">🗻 Fuji: <span id="fujiStatus">..</span></div>
     </div>
 
-    <!-- HERO -->
     <header>
         <div class="hero-content">
             <h1>Arya's<br>Japan<br>Trip</h1>
         </div>
     </header>
 
-    <!-- NAV -->
     <nav class="nav-strip">
         <a href="#wallet" class="nav-item">💰 Wallet</a>
         <a href="#tokyo" class="nav-item">🗼 Tokyo</a>
@@ -239,59 +223,37 @@
 
     <div class="container">
 
-        <!-- SMART WALLET -->
+        <!-- WALLET -->
         <div id="wallet" class="wallet-card">
             <div class="wallet-header">
-                <div>
-                    <div style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; opacity:0.7;">Remaining Budget</div>
-                    <div class="wallet-balance" id="displayBalance">¥0</div>
-                </div>
-                <div style="text-align:right;">
-                    <div style="font-size:1.5rem;" id="displayBalanceINR">₹0</div>
-                </div>
+                <div><div style="font-size:0.8rem; opacity:0.7;">REMAINING</div><div class="wallet-balance" id="displayBalance">¥0</div></div>
+                <div style="font-size:1.5rem;" id="displayBalanceINR">₹0</div>
             </div>
-            <div class="progress-bar" style="background:rgba(255,255,255,0.2); height:6px; border-radius:3px; overflow:hidden;">
-                <div id="budgetBar" style="width:100%; height:100%; background:var(--success);"></div>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <button class="wallet-btn" onclick="openBudgetModal()">Set Budget</button>
+                <button class="wallet-btn add" onclick="openExpenseModal()">+ Expense</button>
             </div>
-            <div class="wallet-actions">
-                <button class="wallet-btn" onclick="openBudgetModal()">⚙️ Set Budget</button>
-                <button class="wallet-btn add" onclick="openExpenseModal()">+ Add Expense</button>
-            </div>
-            <div id="expenseList" style="margin-top:20px; max-height:150px; overflow-y:auto; font-size:0.9rem;">
-                <!-- JS will populate -->
-            </div>
+            <div id="expenseList" style="margin-top:20px; max-height:150px; overflow-y:auto; font-size:0.9rem;"></div>
         </div>
 
-        <!-- EMERGENCY CARD -->
+        <!-- EMERGENCY -->
         <h2 id="emergency" style="text-align:center; font-family:'Zen Maru Gothic'; font-weight:900;">🆘 EMERGENCY</h2>
         <div class="card" style="border: 2px solid #FF3B30;">
             <div class="emergency-grid">
-                <a href="tel:110" class="ems-btn">👮‍♂️ 110<br><span style="font-size:0.8rem">Police</span></a>
-                <a href="tel:119" class="ems-btn">🚑 119<br><span style="font-size:0.8rem">Fire/Medic</span></a>
+                <a href="tel:110" class="ems-btn">👮‍♂️ 110</a>
+                <a href="tel:119" class="ems-btn">🚑 119</a>
             </div>
-            <div style="margin-top:15px; text-align:center;">
-                <button class="wallet-btn" style="background:#ddd; color:black; width:100%;" onclick="alert('Embassy of India, Tokyo\n+81-3-3262-2391')">📞 Indian Embassy</button>
+            <div style="margin-top:15px;">
+                <button class="wallet-btn" style="background:#ddd; color:black;" onclick="alert('Embassy of India\n+81-3-3262-2391')">📞 Indian Embassy</button>
             </div>
         </div>
 
-        <!-- PACKING LIST -->
-        <div class="card">
-            <h3>🎒 Quick Checklist</h3>
-            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 'pass')"><span>Passport & Visa</span></div>
-            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 'esim')"><span>Ubigi eSIM Installed</span></div>
-            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 'cash')"><span>Withdraw ¥¥¥ Cash</span></div>
-        </div>
-        
         <!-- TOKYO -->
         <div id="tokyo" class="city-header"><h2 class="city-title">🗼 TOKYO</h2></div>
 
         <div class="card">
-            <span class="tag">DAY 1 • SATURDAY</span>
+            <span class="tag">DAY 1</span>
             <h3>Arrival</h3>
-            <div class="timeline-item">
-                <div class="time-badge">16:00</div>
-                <div class="content">Bus to Shinjuku. <span class="price-tag">¥3,200</span></div>
-            </div>
             <div class="timeline-item">
                 <div class="time-badge">20:00</div>
                 <div class="content">
@@ -302,33 +264,38 @@
         </div>
         
         <div class="card">
-            <span class="tag">DAY 2 • SUNDAY</span>
-            <h3>Harajuku & Shibuya</h3>
+            <span class="tag">DAY 2</span>
+            <h3>Culture & Trends</h3>
+            <div class="timeline-item">
+                <div class="time-badge">09:30</div>
+                <div class="content">
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Meiji+Shrine" class="map-link">Meiji Shrine</a></strong>.
+                    <a href="https://en.wikipedia.org/wiki/Meiji_Shrine" class="wiki-btn">📖 History</a>
+                </div>
+            </div>
             <div class="timeline-item">
                 <div class="time-badge">11:00</div>
                 <div class="content">
                     <strong><a href="https://www.google.com/maps/search/?api=1&query=Gariguette+Omotesando" class="map-link">Gariguette</a></strong>.
-                    <div class="dish-badge">🍓 Napoleon</div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">16:30</div>
-                <div class="content"><strong>Shibuya Sky</strong>. <span class="price-tag">¥2,500</span></div>
             </div>
         </div>
 
         <div class="card">
-            <span class="tag">DAY 3 • MONDAY</span>
+            <span class="tag">DAY 3</span>
             <h3>Asakusa</h3>
+            <div class="timeline-item">
+                <div class="time-badge">10:30</div>
+                <div class="content">
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Senso-ji+Temple" class="map-link">Senso-ji Temple</a></strong>.
+                    <a href="https://en.wikipedia.org/wiki/Sens%C5%8D-ji" class="wiki-btn">📖 History</a>
+                </div>
+            </div>
             <div class="timeline-item">
                 <div class="time-badge">12:00</div>
                 <div class="content">
                     <strong><a href="https://www.google.com/maps/search/?api=1&query=Daikokuya+Tempura" class="map-link">Daikokuya Tempura</a></strong>.
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">16:00</div>
-                <div class="content"><strong>teamLab Planets</strong>. <span class="price-tag">¥3,800</span></div>
             </div>
         </div>
 
@@ -336,83 +303,72 @@
         <div id="osaka" class="city-header"><h2 class="city-title">🐙 OSAKA</h2></div>
 
         <div class="card">
-            <span class="tag">DAY 4 • TUESDAY</span>
+            <span class="tag">DAY 4</span>
             <h3>Shinkansen</h3>
             <div class="timeline-item">
-                <div class="time-badge">10:00</div>
+                <div class="time-badge">16:00</div>
                 <div class="content">
-                    <span class="transport-badge train">TRAIN</span> To Osaka. <span class="price-tag">¥14,720</span>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">18:00</div>
-                <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Takoyaki+Wanaka+Dotonbori" class="map-link">Takoyaki Wanaka</a></strong>.
-                    <div class="dish-badge">🐙 Ooiri Plate</div>
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha" class="map-link">Fushimi Inari Shrine</a></strong>.
+                    <a href="https://en.wikipedia.org/wiki/Fushimi_Inari-taisha" class="wiki-btn">📖 History</a>
                 </div>
             </div>
         </div>
 
         <div class="card">
-            <span class="tag">DAY 5 • WEDNESDAY</span>
+            <span class="tag">DAY 5</span>
             <h3>Kyoto</h3>
             <div class="timeline-item">
-                <div class="time-badge">09:45</div>
-                <div class="content"><strong><a href="https://www.google.com/maps/search/?api=1&query=%25+Arabica+Kyoto+Arashiyama" class="map-link">% Arabica</a></strong>.</div>
-            </div>
-        </div>
-
-        <div class="card">
-            <span class="tag">DAYS 6 & 7</span>
-            <h3>Hiroshima & Dotonbori</h3>
-            <div class="timeline-item">
-                <div class="time-badge">Day 6</div>
-                <div class="content">Himeji Castle & Miyajima.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">Day 7</div>
+                <div class="time-badge">14:30</div>
                 <div class="content">
-                    <strong>Sumo</strong> & <strong>Rikuro Cheesecake</strong>.
-                    <div class="dish-badge">🍰 Jiggly Cheesecake</div>
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Kinkaku-ji" class="map-link">Kinkaku-ji (Golden Pavilion)</a></strong>.
+                    <a href="https://en.wikipedia.org/wiki/Kinkaku-ji" class="wiki-btn">📖 History</a>
                 </div>
             </div>
         </div>
 
-        <div class="card" style="border: 2px solid var(--primary);">
-            <span class="tag" style="color:var(--primary)">DAY 8 • FINALE</span>
-            <h3>Kuromon Specails</h3>
+        <div class="card">
+            <span class="tag">DAY 6</span>
+            <h3>Hiroshima</h3>
+            <div class="timeline-item">
+                <div class="time-badge">09:00</div>
+                <div class="content">
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Himeji+Castle" class="map-link">Himeji Castle</a></strong>.
+                    <a href="https://en.wikipedia.org/wiki/Himeji_Castle" class="wiki-btn">📖 History</a>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">15:00</div>
+                <div class="content">
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Peace+Memorial+Park" class="map-link">Peace Memorial Park</a></strong>.
+                    <a href="https://en.wikipedia.org/wiki/Hiroshima_Peace_Memorial_Park" class="wiki-btn">📖 History</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <span class="tag">DAY 8</span>
+            <h3>Finale</h3>
             <div class="timeline-item">
                 <div class="time-badge">09:00</div>
                 <div class="content">
                     <strong><a href="https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market" class="map-link">Kuromon Market</a></strong>.
+                    <a href="https://en.wikipedia.org/wiki/Kuromon_Ichiba" class="wiki-btn">📖 History</a>
                     <div class="dish-badge">🥩 Wagyu Skewer</div>
-                    <div class="dish-badge">🐚 Butter Scallop</div>
                 </div>
             </div>
-            <div class="timeline-item">
-                <div class="time-badge">11:30</div>
-                <div class="content"><strong>Orange Street</strong>.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">18:00</div>
-                <div class="content">✈️ <strong>Depart KIX</strong>.</div>
-            </div>
         </div>
-
-        <!-- Clean Footer (No Name) -->
+        
         <div style="text-align:center; padding:50px; color:#aaa; font-size:0.8rem;">
-            Have a safe flight! ✈️🇯🇵
+            Safe Travels! ✈️🇯🇵
         </div>
 
     </div>
 
-    <!-- MODALS -->
+    <!-- MODALS for Wallet -->
     <div id="budgetModal" class="modal">
         <div class="modal-content">
-            <h3>⚙️ Set Budget (JPY)</h3>
-            <div class="input-group">
-                <input type="number" id="budgetInput" placeholder="e.g. 150000">
-            </div>
+            <h3>Set Budget (JPY)</h3>
+            <div class="input-group"><input type="number" id="budgetInput" placeholder="150000"></div>
             <div class="modal-actions">
                 <button class="wallet-btn" style="background:#ddd; color:black;" onclick="closeModal('budgetModal')">Cancel</button>
                 <button class="wallet-btn add" onclick="saveBudget()">Save</button>
@@ -422,15 +378,9 @@
 
     <div id="expenseModal" class="modal">
         <div class="modal-content">
-            <h3>💸 Add Expense</h3>
-            <div class="input-group">
-                <label>Amount (JPY)</label>
-                <input type="number" id="exAmount" placeholder="3200">
-            </div>
-            <div class="input-group">
-                <label>Note</label>
-                <input type="text" id="exNote" placeholder="Bus Ticket">
-            </div>
+            <h3>Add Expense</h3>
+            <div class="input-group"><input type="number" id="exAmount" placeholder="Amount (¥)"></div>
+            <div class="input-group"><input type="text" id="exNote" placeholder="Note"></div>
             <div class="modal-actions">
                 <button class="wallet-btn" style="background:#ddd; color:black;" onclick="closeModal('expenseModal')">Cancel</button>
                 <button class="wallet-btn add" onclick="addExpense()">Add</button>
@@ -439,90 +389,51 @@
     </div>
 
     <script>
-        // STATE
+        // Wallet Logic Same as Previous Step
         let budget = localStorage.getItem('japan_budget') || 0;
         let expenses = JSON.parse(localStorage.getItem('japan_expenses')) || [];
-        let inrRate = 0.58; // Fallback
+        let inrRate = 0.58;
 
-        // WALLET LOGIC
         function updateWalletUI() {
             const spent = expenses.reduce((a, b) => a + Number(b.amount), 0);
             const remaining = budget - spent;
-            const percent = budget > 0 ? (remaining / budget) * 100 : 0;
             
             document.getElementById('displayBalance').innerText = `¥${remaining.toLocaleString()}`;
             document.getElementById('displayBalanceINR').innerText = `₹${(remaining * inrRate).toFixed(0)}`;
-            document.getElementById('budgetBar').style.width = Math.max(0, percent) + "%";
-            document.getElementById('budgetBar').style.background = remaining < 0 ? "#FF3B30" : "#34C759";
 
             const list = document.getElementById('expenseList');
-            list.innerHTML = expenses.length === 0 ? '<div style="opacity:0.5; text-align:center; margin-top:10px;">No expenses yet</div>' : '';
+            list.innerHTML = expenses.length === 0 ? '<div style="opacity:0.5; text-align:center;">No expenses yet</div>' : '';
             
-            expenses.slice().reverse().forEach((ex, i) => {
+            expenses.slice().reverse().forEach((ex) => {
                 const div = document.createElement('div');
                 div.style.cssText = "display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.1);";
-                div.innerHTML = `<span>${ex.note}</span> <span style="font-weight:700">¥${Number(ex.amount).toLocaleString()}</span>`;
+                div.innerHTML = `<span>${ex.note}</span> <strong>¥${Number(ex.amount).toLocaleString()}</strong>`;
                 list.appendChild(div);
             });
         }
 
         function saveBudget() {
             const val = document.getElementById('budgetInput').value;
-            if(val) {
-                budget = val;
-                localStorage.setItem('japan_budget', budget);
-                updateWalletUI();
-                closeModal('budgetModal');
-            }
+            if(val) { budget = val; localStorage.setItem('japan_budget', budget); updateWalletUI(); closeModal('budgetModal'); }
         }
 
         function addExpense() {
             const amt = document.getElementById('exAmount').value;
             const note = document.getElementById('exNote').value;
             if(amt && note) {
-                expenses.push({ amount: amt, note: note, date: new Date().toISOString() });
+                expenses.push({ amount: amt, note: note });
                 localStorage.setItem('japan_expenses', JSON.stringify(expenses));
-                updateWalletUI();
-                document.getElementById('exAmount').value = '';
-                document.getElementById('exNote').value = '';
-                closeModal('expenseModal');
+                updateWalletUI(); closeModal('expenseModal');
             }
         }
-
         function openBudgetModal() { document.getElementById('budgetModal').classList.add('open'); }
         function openExpenseModal() { document.getElementById('expenseModal').classList.add('open'); }
         function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
-        // CHECKLIST LOGIC
-        function toggleCheck(el, key) {
-            localStorage.setItem('check_' + key, el.checked);
-            el.parentElement.classList.toggle('checked', el.checked);
-        }
-        
-        // INIT
         window.onload = async () => {
-            // Restore Checks
-            ['pass', 'esim', 'cash'].forEach(k => {
-                const val = localStorage.getItem('check_' + k) === 'true';
-                const el = document.querySelector(`input[onchange*="'${k}'"]`);
-                if(el) { el.checked = val; if(val) el.parentElement.classList.add('checked'); }
-            });
-
-            // Fetch Rates & Update Wallet
-            try {
-                const r = await fetch('https://api.exchangerate-api.com/v4/latest/JPY');
-                const d = await r.json();
-                inrRate = d.rates.INR;
-            } catch(e) {}
+            try { const r = await fetch('https://api.exchangerate-api.com/v4/latest/JPY'); const d = await r.json(); inrRate = d.rates.INR; } catch(e) {}
             updateWalletUI();
-            
-            // Fuji
-            try {
-                const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.36&longitude=138.72&current=cloud_cover');
-                const d = await r.json();
-                const c = d.current.cloud_cover;
-                document.getElementById('fujiStatus').innerText = c < 30 ? "Clear 🟢" : "Cloudy ☁️";
-            } catch(e) { document.getElementById('fujiStatus').innerText = "?"; }
+            try { const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.36&longitude=138.72&current=cloud_cover'); const d = await r.json(); document.getElementById('fujiStatus').innerText = d.current.cloud_cover < 30 ? "Clear 🟢" : "Cloudy ☁️"; } catch(e) {}
         };
     </script>
 </body>
