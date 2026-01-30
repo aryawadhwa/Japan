@@ -88,6 +88,9 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
 - **14:00** - 🛍️ **Minami Aoyama Stroll**.
   - _Walk_: 10 mins down Omotesando Blvd.
   - _Vibe_: "Tokyo's West Village". Prada Building, Blue Bottle Coffee, quiet alleys.
+  - 🍰 **Viral Treat**: **Gariguette - Omotesando**.
+    - _Item_: The "Mille-presse" (Round mille-feuille). Extremely viral and delicious.
+    - [Google Maps](https://goo.gl/maps/Gariguette)
 - **15:30** - � **Hachiko Statue**.
   - _Transport_: Walk (15 mins) or Taxi (5 mins) to Shibuya Station.
   - _Action_: Meet at the "Hachiko Exit" to see the legendary bronze dog statue. (Busiest exit in Tokyo!).
@@ -154,9 +157,10 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
 - **19:00** - 🏙️ **Deep Osaka Night**: **Dotonbori**.
   - _Walk_: See the Glico Man sign.
   - _Visit_: **Amerika-mura** (Vintage shops).
-  - _Snack_: **Takoyaki Wanaka** (Dotonbori).
-    - _Verdict_: Crispy outside, gooey inside. The best in Osaka.
-    - [Google Maps](https://goo.gl/maps/TakoyakiWanaka)
+  - _Snack 1_: **Takoyaki Wanaka** (Dotonbori). Best Takoyaki in Osaka.
+  - _Snack 2_: **10 Yen Cheese Coin** (Dotonbori).
+    - _Item_: Giant coin-shaped waffle filled with stretching cheese. Viral hit.
+    - [Google Maps](https://goo.gl/maps/10YenPan)
 - **20:00** - 🥞 **Dinner**: **Okonomiyaki Okaru**.
   - _Vibe_: Famous for **Disney character mayonnaise art** drawn on your pancake. Fun & delicious.
   - [Google Maps](https://goo.gl/maps/OkonomiyakiOkaru)
@@ -165,6 +169,9 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
 
 - **08:00** - ☕ **Breakfast**: **Komeda's Coffee**. (Nagoya-style toast).
 - **09:00** - 🚆 **Transport**: JR Train to Saga-Arashiyama (30 mins).
+- **09:45** - ☕ **Coffee Stop**: **% Arabica Kyoto Arashiyama**.
+  - _View_: Iconic coffee stand right on the river. Be prepared for a line, but the latte & view are world-class.
+  - [Google Maps](https://goo.gl/maps/ArabicaKyoto)
 - **10:00** - 🏮 **Arashiyama**.
   - _Avoid_: Bamboo Grove (too crowded). switch to ->
   - _Visit_: **Tenryu-ji Temple**. (Stunning Zen garden, World Heritage).
@@ -208,6 +215,9 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
   - _Vibe_: Fun, interactive, and great for families. **Book in advance**.
   - [**Book on Viator**](https://www.viator.com/tours/Osaka/Osaka-Sumo-Experience-tonkatsu-lunch/d339-301646P1) | [**Book on Klook**](https://www.klook.com/activity/76503-osaka-sumo-wrestlers-experience/)
 - **12:00** - 👟 **Onitsuka Tiger Namba City**. (Last chance shopping).
+- **12:45** - 🧀 **Souvenir**: **Rikuro Ojisan (Uncle Rikuro's Cheesecake)**.
+  - _Item_: The famous "Jiggly Cheesecake". Freshly baked and wobbles when rung with a bell.
+  - [Google Maps](https://goo.gl/maps/RikuroOjisan)
 - **13:30** - 🦀 **Lunch**: **Kani Doraku** (Dotonbori).
   - _Experience_: The famous crab feast.
 - **15:30** - 🚆 **Transport**: **Haruka Express** to KIX Airport (45 mins).

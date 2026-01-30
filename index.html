@@ -16,7 +16,7 @@
             padding: 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
             padding: 40px;
@@ -25,104 +25,128 @@
         }
         h1 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 5px;
             color: #000;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
         .subtitle {
             text-align: center;
             color: #86868b;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 40px;
             font-weight: 300;
         }
         .hero-img {
             width: 100%;
-            height: 300px;
+            height: 350px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 12px;
             margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
         .section-header {
-            border-bottom: 2px solid #f5f5f7;
+            border-bottom: 2px solid #0071e3;
             padding-bottom: 10px;
-            margin-top: 50px;
+            margin-top: 60px;
             margin-bottom: 25px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #000;
-            letter-spacing: -0.5px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1d1d1f;
         }
+        .sub-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #1d1d1f;
+        }
+        /* Cards */
         .card {
             background: #fbfbfd;
             border: 1px solid #d2d2d7;
-            border-radius: 8px;
-            padding: 20px;
+            border-radius: 12px;
+            padding: 25px;
             margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            transition: transform 0.2s;
         }
-        .card-content {
-            flex: 1;
-            min-width: 250px;
+        .card:hover {
+            transform: scale(1.01);
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .card h3 {
-            margin: 0 0 5px 0;
-            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+            color: #0071e3;
         }
         .card p {
-            margin: 5px 0;
-            font-size: 0.95rem;
+            margin: 8px 0;
             color: #515154;
         }
+        .card .time {
+            font-weight: 700;
+            color: #1d1d1f;
+            display: inline-block;
+            width: 70px;
+        }
+        /* Buttons */
         .btn {
+            display: inline-block;
             background: #0071e3;
             color: white;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
-            white-space: nowrap;
+            margin-top: 10px;
             transition: background 0.2s;
         }
-        .btn:hover {
-            background: #0077ed;
+        .btn:hover { background: #0077ed; }
+        
+        /* Logistics Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-        .tag {
-            display: inline-block;
-            background: #e8f0fe;
-            color: #1a73e8;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 5px;
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
-        .distance-info {
-            display: flex;
-            gap: 15px;
-            margin-top: 5px;
-            font-size: 0.85rem;
-            color: #6e6e73;
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
         }
+        th { background: #f5f5f7; }
+
+        /* Footer */
         .footer {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 80px;
             padding-top: 30px;
             border-top: 1px solid #eee;
             color: #86868b;
             font-size: 0.9rem;
             font-family: monospace;
         }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+        
         @media print {
             .btn, .hero-img, .footer { display: none; }
-            .container { box-shadow: none; border: none; width: 100%; max-width: 100%; padding: 0; }
+            .container { box-shadow: none; width: 100%; max-width: 100%; padding: 0; }
             body { background: white; padding: 0; }
-            a { text-decoration: none; color: black; }
-            .card { break-inside: avoid; border: 1px solid #ddd; }
+            .card { border: 1px solid #ccc; break-inside: avoid; }
         }
     </style>
 </head>
@@ -130,98 +154,157 @@
 
     <div class="container">
         <h1>ARYA'S JAPAN ITINERARY</h1>
-        <div class="subtitle">Tokyo • Kyoto • Osaka • Hiroshima</div>
+        <div class="subtitle">7 Days • Tokyo • Kyoto • Osaka • Hiroshima</div>
+        <img src="assets/tokyo_neon_night_1769802691637.png" alt="Tokyo" class="hero-img">
 
-        <img src="assets/tokyo_neon_night_1769802691637.png" alt="Tokyo Night" class="hero-img">
-
-        <!-- HOTELS -->
-        <div class="section-header">🏨 Key Accommodations</div>
-
+        <!-- ACCOMMODATION -->
+        <div class="section-header">🏨 Accommodation Guide</div>
         <div class="card">
-            <div class="card-content">
-                <span class="tag">TOKYO BASE</span>
-                <h3>JR Kyushu Hotel Blossom Shinjuku</h3>
-                <div class="distance-info">
-                    <span>🚶 3 mins to Station</span>
-                    <span>🚌 5 mins to Airport Bus</span>
-                </div>
-            </div>
-            <a href="https://www.agoda.com/jr-kyushu-hotel-blossom-shinjuku/hotel/tokyo-jp.html?cid=1844104" target="_blank" class="btn">View Booking</a>
+            <h3>🗼 Tokyo: JR Kyushu Hotel Blossom Shinjuku</h3>
+            <p><strong>Verdict:</strong> Best Overall. 3-min walk, safe, modern.</p>
+            <p><strong>Est. Price:</strong> ¥40,000 / night</p>
+            <a href="https://www.agoda.com/jr-kyushu-hotel-blossom-shinjuku/hotel/tokyo-jp.html?cid=1844104" target="_blank" class="btn">Book Now</a>
+        </div>
+        <div class="card">
+            <h3>🐙 Osaka: Hotel Granvia Osaka</h3>
+            <p><strong>Verdict:</strong> Inside Station. Direct Shinkansen access.</p>
+            <p><strong>Est. Price:</strong> ¥35,000 / night</p>
+            <a href="https://www.agoda.com/hotel-granvia-osaka/hotel/osaka-jp.html?cid=1844104" target="_blank" class="btn">Book Now</a>
+        </div>
+        <div class="card">
+            <h3>Alternative: Remm Shin-Osaka</h3>
+            <p><strong>Verdict:</strong> Efficient, in-room massage chair. Connected to Shinkansen.</p>
+            <a href="https://www.agoda.com/info/remm-shin-osaka/hotel/osaka-jp.html?cid=1844104" target="_blank" class="btn">Book Now</a>
         </div>
 
-        <div class="card">
-            <div class="card-content">
-                <span class="tag">OSAKA BASE</span>
-                <h3>Hotel Granvia Osaka</h3>
-                <div class="distance-info">
-                    <span>🚄 0 mins (Inside Station)</span>
-                    <span>🛍️ Connected to Malls</span>
-                </div>
+        <!-- BUDGET & LOGISTICS -->
+        <div class="section-header">💰 Budget & Logistics</div>
+        <div class="grid-2">
+            <div class="card">
+                <h3>Transport Costs (Est.)</h3>
+                <ul>
+                    <li><strong>Shinkansen (Tok→Osa)</strong>: ¥14,500 ($95)</li>
+                    <li><strong>Kansai-Hiroshima Pass</strong>: ¥17,000 ($110)</li>
+                    <li><strong>Airport Bus</strong>: ¥3,200 ($21)</li>
+                    <li><strong>Suica Fill</strong>: ¥3,000 ($20)</li>
+                </ul>
+                <a href="https://www.klook.com/japan-rail/shinkansen/" target="_blank" class="btn">Book Shinkansen</a>
             </div>
-            <a href="https://www.agoda.com/hotel-granvia-osaka/hotel/osaka-jp.html?cid=1844104" target="_blank" class="btn">View Booking</a>
-        </div>
-
-        <!-- ITINERARY -->
-        <div class="section-header">🗓️ Daily Itinerary</div>
-
-        <div class="card">
-            <div class="card-content">
-                <span class="tag">DAY 1</span>
-                <h3>Arrival & Shinjuku</h3>
-                <p>Land at Haneda (Closer than Narita). Limousine bus to hotel. Easy dinner at Tsurutontan.</p>
+            <div class="card">
+                <h3>Money Essentials</h3>
+                <p>💵 <strong>Cash is King</strong>: Carry ¥20,000 always.</p>
+                <p>🏧 <strong>7-Eleven ATMs</strong>: Best rates, English menu.</p>
+                <p>💳 <strong>Suica/Pasmo</strong>: Use for trains, konbini, vending machines.</p>
             </div>
         </div>
 
+        <!-- DAILY ITINERARY -->
+        <div class="section-header">🗓️ Daily Master Plan</div>
+
+        <!-- Day 1 -->
         <div class="card">
-            <div class="card-content">
-                <span class="tag">DAY 2</span>
-                <h3>Sophisticated Tokyo</h3>
-                <p>Meiji Shrine (AM) → Harajuku → Shibuya Sky (Sunset). Dinner at Butagumi.</p>
-            </div>
+            <h3>Day 1: Arrival (Sat, Mar 7)</h3>
+            <p><span class="time">15:00</span> 🛬 Land at <strong>Haneda (HND)</strong>. (Much better than Narita).</p>
+            <p><span class="time">16:00</span> 🚌 Limousine Bus to Shinjuku West.</p>
+            <p><span class="time">19:00</span> 🏙️ <strong>Tokyo Metro Govt Building</strong> (Free views).</p>
+            <p><span class="time">20:00</span> 🍜 Dinner: <strong>Tsurutontan Shinjuku</strong> (Giant Udon).</p>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="card">
+            <h3>Day 2: Sophisticated Tokyo (Sun, Mar 8)</h3>
+            <p><span class="time">09:30</span> 🌳 <strong>Meiji Shrine & Antique Market</strong> (Yoyogi).</p>
+            <p><span class="time">11:30</span> 👟 <strong>Onitsuka Tiger Omotesando</strong> (Nippon Made).</p>
+            <p><span class="time">14:00</span> 🛍️ <strong>Minami Aoyama Stroll</strong> (Prada, Blue Bottle).</p>
+            <p><span class="time">Treat</span> 🍰 <strong>Gariguette</strong> (Viral Mille-presse).</p>
+            <p><span class="time">15:30</span> 🐕 <strong>Hachiko Statue</strong> (Shibuya).</p>
+            <p><span class="time">16:30</span> 🏙️ <strong>Shibuya Sky</strong> (Sunset).</p>
+            <p><span class="time">19:30</span> 🍽️ Dinner: <strong>Butagumi</strong> (Tonkatsu in heritage house).</p>
             <a href="https://www.shibuya-scramble-square.com/sky/ticket/" target="_blank" class="btn">Book Sky</a>
+            <a href="https://www.butagumi.com/nishiazabu/" target="_blank" class="btn">Reserve Butagumi</a>
         </div>
 
+        <!-- Day 3 -->
         <div class="card">
-            <div class="card-content">
-                <span class="tag">DAY 3</span>
-                <h3>Asakusa & Digital Art</h3>
-                <p>Senso-ji Temple → teamLab Planets → Ginza → Memory Lane.</p>
-            </div>
+            <h3>Day 3: Old Tokyo & Digital Art (Mon, Mar 9)</h3>
+            <p><span class="time">10:30</span> ⛩️ <strong>Senso-ji Temple</strong>.</p>
+            <p><span class="time">Snack</span> 🍠 <strong>Imo Pippi</strong> (Purple Potato Ice Cream).</p>
+            <p><span class="time">Snack</span> 🍙 <strong>Onigiri Yadoroku</strong> (Michelin Rice Balls).</p>
+            <p><span class="time">14:00</span> 🚢 Water Bus to Hamarikyu.</p>
+            <p><span class="time">16:00</span> 🌌 <strong>teamLab Planets TOKYO</strong> (Toyosu).</p>
+            <p><span class="time">21:00</span> 🍻 <strong>Memory Lane (Omoide Yokocho)</strong>. Yakitori & smoky vibes.</p>
             <a href="https://planets.teamlab.art/tokyo/" target="_blank" class="btn">Book teamLab</a>
+            <a href="https://goo.gl/maps/ImoPippiAsakusa" target="_blank" class="btn">Map: Imo Pippi</a>
         </div>
 
+        <!-- Day 4 -->
         <div class="card">
-            <div class="card-content">
-                <span class="tag">DAY 4</span>
-                <h3>To Osaka & Dotonbori</h3>
-                <p>Shinkansen to Osaka. Fushimi Inari Shrine (PM). Dinner: <strong>Okonomiyaki Okaru</strong> (Famous Mayo Art!).</p>
-            </div>
-            <a href="https://goo.gl/maps/OkonomiyakiOkaru" target="_blank" class="btn">View Map</a>
+            <h3>Day 4: To Osaka (Tue, Mar 10)</h3>
+            <p><span class="time">10:00</span> 🚄 Shinkansen to Shin-Osaka (Eat Ekiben tailored bento).</p>
+            <p><span class="time">16:00</span> ⛩️ <strong>Fushimi Inari Shrine</strong> (Senbon Torii).</p>
+            <p><span class="time">19:00</span> 🏙️ <strong>Dotonbori</strong> & Glico Man.</p>
+            <p><span class="time">Snack</span> 🧀 <strong>10 Yen Cheese Coin</strong> (Viral).</p>
+            <p><span class="time">Snack</span> 🐙 <strong>Takoyaki Wanaka</strong> (Best in Osaka).</p>
+            <p><span class="time">20:00</span> 🥞 Dinner: <strong>Okonomiyaki Okaru</strong> (Disney Mayo Art!).</p>
+            <a href="https://goo.gl/maps/OkonomiyakiOkaru" target="_blank" class="btn">Map: Okaru</a>
         </div>
 
+        <!-- Day 5 -->
         <div class="card">
-            <div class="card-content">
-                <span class="tag">DAY 5</span>
-                <h3>Iconic Kyoto</h3>
-                <p>Arashiyama (Bamboo) → Kinkaku-ji (Gold) → Gion (Geisha District). Stop at <strong>Mochi Mochi</strong>.</p>
-            </div>
+            <h3>Day 5: Iconic Kyoto (Wed, Mar 11)</h3>
+            <p><span class="time">09:45</span> ☕ <strong>% Arabica Arashiyama</strong> (River View).</p>
+            <p><span class="time">10:00</span> 🏮 <strong>Arashiyama</strong> (Tenryu-ji Temple).</p>
+            <p><span class="time">14:30</span> 🕌 <strong>Kinkaku-ji</strong> (Golden Pavilion).</p>
+            <p><span class="time">16:30</span> 🍡 <strong>Mochi Mochi</strong> (Viral Warabi Mochi spot).</p>
+            <p><span class="time">17:30</span> 🏮 <strong>Gion Stroll</strong> (Yasaka Shrine to Ninenzaka).</p>
+            <p><span class="time">19:30</span> 🥘 Dinner: <strong>Okonomiyaki Kiji</strong> (Umeda).</p>
+            <a href="https://goo.gl/maps/MochiMochiKyoto" target="_blank" class="btn">Map: Mochi Mochi</a>
         </div>
 
+        <!-- Day 6 -->
         <div class="card">
-            <div class="card-content">
-                <span class="tag">DAY 6</span>
-                <h3>Hiroshima Day Trip</h3>
-                <p>Himeji Castle (AM) → Hiroshima Peace Park → Miyajima Island (Sunset).</p>
-            </div>
+            <h3>Day 6: Hiroshima & Himeji (Thu, Mar 12)</h3>
+            <p><span class="time">09:00</span> 🏯 <strong>Himeji Castle</strong> (White Heron).</p>
+            <p><span class="time">15:00</span> 🕊️ <strong>Hiroshima Peace Park</strong> (Atomic Bomb Dome).</p>
+            <p><span class="time">17:30</span> ⛩️ <strong>Miyajima Island</strong> (Floating Torii at Sunset).</p>
+            <p><span class="time">20:30</span> 🍱 Dinner: <strong>551 Horai</strong> (Pork Buns).</p>
         </div>
 
+        <!-- Day 7 -->
         <div class="card">
-            <div class="card-content">
-                <span class="tag">DAY 7</span>
-                <h3>Sumo & Departure</h3>
-                <p>Osaka Sumo Experience → Crab Lunch → Flight home.</p>
-            </div>
+            <h3>Day 7: Sumo & Departure (Fri, Mar 13)</h3>
+            <p><span class="time">10:00</span> 🤼 <strong>Osaka Sumo Experience</strong> (Interactive).</p>
+            <p><span class="time">Soul</span> 🧀 <strong>Rikuro Ojisan</strong> (Jiggly Cheesecake Souvenir).</p>
+            <p><span class="time">13:30</span> 🦀 Lunch: <strong>Kani Doraku</strong> (Crab Feast).</p>
+            <p><span class="time">15:30</span> 🚆 Haruka Express to KIX Airport.</p>
+            <p><span class="time">18:00</span> ✈️ Fly Out.</p>
             <a href="https://www.viator.com/tours/Osaka/Osaka-Sumo-Experience-tonkatsu-lunch/d339-301646P1" target="_blank" class="btn">Book Sumo</a>
+        </div>
+
+        <!-- ESSENTIALS -->
+        <div class="section-header">📱 Essentials & Etiquette</div>
+        <div class="card">
+            <h3>📲 Must-Have Apps</h3>
+            <ul style="padding-left: 20px;">
+                <li><strong>Google Maps</strong>: Navigation & Trains.</li>
+                <li><strong>Tabelog</strong>: Restaurant reviews (Gold standard).</li>
+                <li><strong>SmartEX</strong>: Shinkansen booking.</li>
+                <li><strong>Ubigi/Airalo</strong>: eSIM for data.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>🇯🇵 Etiquette Tips</h3>
+            <ul style="padding-left: 20px;">
+                <li><strong>Trains</strong>: Silence (No phone calls).</li>
+                <li><strong>Trash</strong>: Carry a small bag. No public bins.</li>
+                <li><strong>Walking</strong>: Do not eat while walking.</li>
+                <li><strong>Tipping</strong>: Never tip. It is rude.</li>
+            </ul>
+        </div>
+        <div class="card" style="border-left: 5px solid red;">
+            <h3>🚨 Emergency</h3>
+            <p><strong>Police</strong>: 110 | <strong>Ambulance</strong>: 119</p>
+            <p><strong>Tax-Free</strong>: Show passport for 10% off >¥5,500.</p>
         </div>
 
         <div class="footer">
