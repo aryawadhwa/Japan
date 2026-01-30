@@ -2,7 +2,7 @@
 
 > [!IMPORTANT]
 > **Action Required**: Booking windows are open. Proceed immediately.
-> **Currency Key**: **¥1,000 JPY** ≈ **₹550 INR** ≈ **$6.50 USD**
+> **Currency Key**: **¥1,000 JPY** ≈ **₹580 INR** ≈ **$6.70 USD**
 
 ---
 
@@ -57,6 +57,13 @@ _I have vetted all your requested options and categorized them below._
 ## 🗓️ 3. Detailed Hour-by-Hour Itinerary
 
 _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Planning._
+
+### **📱 Digital Essentials**
+
+- **Google Maps**: Navigation.
+- **Ubigi**: eSIM for data.
+- **SmartEX**: Shinkansen booking.
+- **Suica/Pasmo**: Digital IC Card (Apple Wallet).
 
 ### **Day 1: March 7 (Sat) - Arrival & Shinjuku**
 
