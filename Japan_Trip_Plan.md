@@ -154,7 +154,9 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
 - **19:00** - 🏙️ **Deep Osaka Night**: **Dotonbori**.
   - _Walk_: See the Glico Man sign.
   - _Visit_: **Amerika-mura** (Vintage shops).
-  - _Snack_: **Takoyaki** (Octopus Balls) street stall.
+  - _Snack_: **Takoyaki Wanaka** (Dotonbori).
+    - _Verdict_: Crispy outside, gooey inside. The best in Osaka.
+    - [Google Maps](https://goo.gl/maps/TakoyakiWanaka)
 - **20:00** - 🥞 **Dinner**: **Okonomiyaki Okaru**.
   - _Vibe_: Famous for **Disney character mayonnaise art** drawn on your pancake. Fun & delicious.
   - [Google Maps](https://goo.gl/maps/OkonomiyakiOkaru)
