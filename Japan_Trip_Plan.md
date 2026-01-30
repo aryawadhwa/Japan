@@ -65,6 +65,10 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
 - **SmartEX**: Shinkansen booking.
 - **Suica/Pasmo**: Digital IC Card (Apple Wallet).
 
+---
+
+## 🗼 TOKYO (Days 1-3)
+
 ### **Day 1: March 7 (Sat) - Arrival & Shinjuku**
 
 - **15:00** - 🛬 Land at **Haneda (HND)**.
@@ -150,6 +154,10 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
   - _Vibe_: **Best at Night**. lanterns lit up, smoky nostalgic atmosphere. Also known as "Piss Alley".
   - _Action_: Walk the tiny alleys and try a Yakitori skewer.
 
+---
+
+## 🐙 OSAKA BASE (Days 4-8)
+
 ### **Day 4: March 10 (Tue) - To Osaka & Dotonbori**
 
 - **09:00** - 🚕 **Transport**: Taxi to Shinagawa Station (25 mins).
@@ -230,6 +238,18 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
 - **13:30** - 🦀 **Lunch**: **Kani Doraku** (Dotonbori).
   - _Experience_: The famous crab feast.
 - **15:30** - 🚆 **Transport**: **Haruka Express** to KIX Airport (45 mins).
+- **18:00** - 🌌 **Free Evening**.
+  - _Suggestion_: Rest or visit **Namba Parks** (Rooftop Garden).
+
+### **Day 8: March 14 (Sat) - Market Morning & Departure**
+
+- **09:00** - 🐟 **Breakfast**: **Kuromon Ichiba Market**.
+  - _Eat_: Grilled Scallops, Kobe Beef skewers, and O-toro Sushi. "Osaka's Kitchen".
+- **11:00** - ☕ **Cafe**: **Orange Street (Horie)**.
+  - _Vibe_: Hipster street with trendy cafes and boutiques (Supreme, BAPE).
+- **14:00** - 🚆 **Transport**: Haruka Express to KIX.
+- **15:00** - 🛍️ **Last Stop**: **Rinku Premium Outlets**.
+  - _Location_: One stop before KIX Airport. Massive outlet mall.
 - **18:00** - ✈️ **Fly Out**.
 
 ---
