@@ -2,17 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ARYA'S JAPAN ITINERARY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#black">
+    <title>ARYA'S JAPAN 8-DAY TRIP</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Zen+Maru+Gothic:wght@500;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #FF3B30;
             --accent: #007AFF;
-            --bg: #F5F5F7;
-            --glass: rgba(255, 255, 255, 0.95);
-            --shadow: 0 8px 30px rgba(0,0,0,0.06);
+            --bg: #F2F2F7;
+            --glass: rgba(255, 255, 255, 0.90);
+            --shadow: 0 8px 40px rgba(0,0,0,0.08);
+            --safe-area-top: env(safe-area-inset-top);
+            --safe-area-bottom: env(safe-area-inset-bottom);
         }
 
         html { scroll-behavior: smooth; }
@@ -22,32 +27,51 @@
             color: #1D1D1F;
             margin: 0;
             line-height: 1.6;
-            font-size: 19px; /* Desktop Base */
+            font-size: 19px;
             -webkit-font-smoothing: antialiased;
+            padding-bottom: calc(100px + var(--safe-area-bottom));
         }
 
-        /* Deep Link Styling */
+        /* Reusable Components */
         a.map-link {
             color: inherit;
             text-decoration: none;
             border-bottom: 2px solid rgba(0,0,0,0.1);
             transition: all 0.2s;
         }
-        a.map-link:hover {
-            border-bottom-color: var(--accent);
-            color: var(--accent);
-        }
-        .map-icon {
-            font-size: 0.8em;
-            margin-left: 4px;
-            color: var(--accent);
-            text-decoration: none;
+        a.map-link:active { color: var(--accent); border-color: var(--accent); }
+
+        .dish-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #FFF0F0;
+            color: #D32F2F;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 8px;
+            margin-top: 6px;
         }
 
-        /* Live Widgets Container */
+        .transport-badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-right: 8px;
+            color: white;
+            vertical-align: middle;
+        }
+        .train { background: #34C759; }
+        .taxi { background: #FF9500; }
+        .walk { background: #007AFF; }
+
+        /* Live Widgets */
         .live-widgets {
             position: fixed;
-            bottom: 25px;
+            bottom: calc(25px + var(--safe-area-bottom));
             right: 25px;
             display: flex;
             flex-direction: column;
@@ -55,29 +79,25 @@
             align-items: flex-end;
             z-index: 1000;
         }
-
         .widget-badge {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(20, 20, 20, 0.95);
             color: white;
-            padding: 12px 24px;
+            padding: 14px 24px;
             border-radius: 40px;
             font-size: 0.9rem;
             font-weight: 700;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
             border: 1px solid rgba(255,255,255,0.15);
-            transition: transform 0.2s;
             display: flex;
             align-items: center;
             gap: 10px;
-            white-space: nowrap;
         }
-        .widget-badge:active { transform: scale(0.95); }
-        .fuji-badge { background: linear-gradient(135deg, #455A64, #263238); }
+        .fuji-badge { background: linear-gradient(135deg, #37474F, #546E7A); }
 
         /* Hero */
         header {
-            height: 60vh;
+            height: 65vh;
             background: url('assets/tokyo_neon_night_1769802691637.png') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
@@ -85,236 +105,158 @@
             align-items: center;
             color: white;
             position: relative;
+            padding-top: var(--safe-area-top);
         }
         header::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.7));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.8));
         }
         .hero-content { z-index: 1; text-align: center; padding: 20px; }
         
-        /* Typography */
         h1 {
             font-family: 'Zen Maru Gothic', sans-serif;
             font-weight: 900;
-            font-size: 4rem;
+            font-size: 4.2rem;
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
-            text-shadow: 0 8px 30px rgba(0,0,0,0.4);
-            line-height: 1.1;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            line-height: 1;
         }
-        .subtitle { font-size: 1.3rem; margin-top: 15px; opacity: 0.95; font-weight: 600; }
+        .subtitle { font-size: 1.2rem; margin-top: 10px; opacity: 0.9; font-weight: 700; background: rgba(0,0,0,0.3); padding: 5px 15px; border-radius: 20px; display: inline-block; backdrop-filter: blur(5px); }
 
         /* Nav */
         .nav-strip {
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid rgba(0,0,0,0.06);
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             display: flex;
             justify-content: center;
-            gap: 8px;
-            padding: 15px 0;
+            gap: 5px;
+            padding: 15px 10px;
             overflow-x: auto;
             white-space: nowrap;
-            -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+            /* iOS Safe Area for Sticky Nav */
+            padding-top: max(15px, var(--safe-area-top)); 
         }
         .nav-item {
-            padding: 8px 18px;
+            padding: 8px 16px;
             border-radius: 20px;
             color: #1D1D1F;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             flex-shrink: 0;
+            background: #F5F5F7;
         }
-        .nav-item:hover, .nav-item:active { background: #E5E5EA; color: var(--primary); }
-        .nav-divider { border-right: 2px solid #E5E5EA; height: 18px; align-self: center; margin: 0 2px; flex-shrink: 0; }
+        .nav-item.active { background: #1D1D1F; color: white; }
 
-        /* Layout */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; padding-bottom: 150px; } /* Extra padding for widgets */
+        /* Content */
+        .container { max-width: 850px; margin: 0 auto; padding: 20px; }
         
         .city-header {
-            background: #fff;
+            background: white;
             padding: 30px;
-            border-radius: 25px;
-            margin: 60px 0 30px;
+            border-radius: 24px;
+            margin: 50px 0 25px;
             text-align: center;
             box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-        .city-title { font-size: 2.2rem; font-weight: 900; color: #000; letter-spacing: -1px; margin: 0; }
-        .city-dates { font-size: 1rem; color: #86868B; margin-top: 5px; font-weight: 800; text-transform: uppercase; }
-
-        /* Cards */
-        .card {
-            background: white;
-            border-radius: 24px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(0,0,0,0.04);
             position: relative;
+            overflow: hidden;
         }
-        .tag {
-            background: #F2F2F7;
-            padding: 6px 12px;
-            border-radius: 10px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #8E8E93;
-            display: inline-block;
-            margin-bottom: 15px;
-        }
-        .card h3 { margin: 0 0 20px; font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
-
-        /* Timeline */
-        .timeline-item { display: flex; gap: 15px; margin-bottom: 25px; position: relative; }
-        /* Line */
-        .timeline-item::after {
+        .city-header::before {
             content: '';
             position: absolute;
-            left: 28px;
-            top: 32px;
-            bottom: -32px;
-            width: 2px;
-            background: #F2F2F7;
+            top: 0; left: 0; right: 0; height: 6px;
+        }
+        #tokyo .city-header::before { background: var(--primary); }
+        #osaka .city-header::before { background: var(--accent); }
+
+        .city-title { font-size: 2.5rem; font-weight: 900; letter-spacing: -1px; margin: 0; }
+        .city-dates { color: #86868B; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; margin-top: 5px; }
+
+        .card {
+            background: white;
+            border-radius: 22px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+        }
+        .tag {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: #8E8E93;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .card h3 { margin: 0 0 20px; font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
+
+        .timeline-item { display: flex; gap: 15px; margin-bottom: 25px; position: relative; }
+        .timeline-item::after {
+            content: '';
+            position: absolute; left: 24px; top: 35px; bottom: -35px; width: 2px; background: #F2F2F7;
         }
         .timeline-item:last-child::after { display: none; }
         
         .time-badge {
-            min-width: 56px;
-            height: 30px;
-            background: #E5E5EA;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
+            min-width: 50px; height: 50px;
+            background: #F2F2F7;
+            border-radius: 14px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            font-size: 0.75rem; font-weight: 800;
             color: #1D1D1F;
             flex-shrink: 0;
+            line-height: 1;
         }
-        .content { font-weight: 400; }
-        .content strong { font-weight: 800; color: #000; }
+        .time-badge span { font-size: 0.6rem; font-weight: 600; color: #86868B; margin-top: 2px; }
 
+        .content { flex: 1; }
+        .content strong { font-weight: 800; color: #000; }
+        
         .price-tag {
             display: inline-block;
             font-size: 0.75rem;
-            color: #555;
-            margin-top: 4px;
-            background: #FAFAFA;
-            padding: 2px 8px;
+            color: #333;
+            background: #F9F9F9;
+            padding: 2px 6px;
             border-radius: 6px;
-            border: 1px solid #E5E5EA;
+            border: 1px solid #EAEAEA;
             font-weight: 600;
+            margin-left: 5px;
         }
-        
-        /* Pro Tip */
-        .pro-tip {
+
+        .local-phrase {
             background: #FFF8E1;
-            border-left: 4px solid #FFCC00;
-            padding: 12px 16px;
-            font-size: 0.9rem;
-            margin: 10px 0 20px 0;
-            border-radius: 0 8px 8px 0;
-            color: #5D4037;
-        }
-        
-        /* Nearby */
-        .nearby-box {
-            background: #FAFAFA;
-            padding: 20px;
-            border-radius: 16px;
-            margin-top: 15px;
-            border: 2px dashed #E5E5EA;
-            font-size: 0.9rem;
-        }
-        
-        /* Apps */
-        .apps-showcase { text-align: center; margin: 40px 0; }
-        .apps-img { width: 100%; border-radius: 20px; margin: 20px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .app-links { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .app-btn {
-            background: #1D1D1F;
-            color: white;
-            text-decoration: none;
-            padding: 12px;
             border-radius: 12px;
-            font-weight: 600;
+            padding: 15px;
+            margin-top: 15px;
             font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            text-align: center;
-        }
-        .btn {
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-weight: 700;
-            display: inline-block;
-            font-size: 0.9rem;
-            margin-top: 8px;
+            color: #5D4037;
+            border: 1px dashed #FFCC00;
         }
 
-        /* Footer */
-        .footer { text-align: center; margin-top: 80px; padding: 40px 0; border-top: 1px solid #E5E5EA; color: #86868B; font-size: 0.8rem; }
-
-        /* MOBILE OPTIMIZATIONS */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
-            body { font-size: 17px; } /* Slightly smaller text for better density */
-            h1 { font-size: 2.5rem; letter-spacing: 1px; }
-            .subtitle { font-size: 1.1rem; }
-            
+            h1 { font-size: 3rem; }
+            .live-widgets { left: 20px; right: 20px; bottom: 20px; flex-direction: row; justify-content: space-between; }
+            .widget-badge { padding: 10px 15px; font-size: 0.8rem; flex: 1; justify-content: center; }
             .nav-strip { justify-content: flex-start; padding-left: 20px; }
-            .container { margin: 25px auto; padding: 0 15px 120px 15px; }
-            
-            .card { padding: 20px; border-radius: 20px; }
-            .card h3 { font-size: 1.5rem; }
-            
-            .city-header { padding: 20px; margin: 40px 0 20px; }
-            .city-title { font-size: 1.8rem; }
-            
-            .timeline-item { gap: 12px; margin-bottom: 20px; }
-            .time-badge { min-width: 50px; font-size: 0.75rem; }
-            .timeline-item::after { left: 25px; }
-            
-            .live-widgets { 
-                left: 15px; right: 15px; bottom: 20px; 
-                flex-direction: row; 
-                justify-content: space-between; 
-                align-items: center;
-                gap: 10px;
-            }
-            .widget-badge { 
-                padding: 10px 15px; 
-                font-size: 0.8rem; 
-                flex: 1; 
-                justify-content: center;
-            }
-            
-            .app-links { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- LIVE WIDGETS -->
     <div class="live-widgets">
-        <!-- Mount Fuji -->
         <div class="widget-badge fuji-badge" id="fujiWidget" onclick="checkFujiVisibility()">
             🗻 Fuji: <span id="fujiStatus">Loading</span>
         </div>
-        <!-- Currency -->
         <div class="widget-badge" id="currencyWidget">
             <span id="jpyRate">¥1k</span>=<span id="inrRate">..</span>
         </div>
@@ -322,143 +264,134 @@
 
     <header>
         <div class="hero-content">
-            <h1>Arya's Japan Trip</h1>
-            <div class="subtitle">Tokyo • Osaka • Kyoto • Hiroshima</div>
+            <h1>Arya's<br>Japan<br>Trip</h1>
+            <div class="subtitle">8 Days • Ultra-Detailed</div>
         </div>
     </header>
 
     <nav class="nav-strip">
-        <a href="#apps" class="nav-item">Essentials</a>
-        <div class="nav-divider"></div>
-        <a href="#tokyo" class="nav-item">Tokyo</a>
-        <a href="#osaka" class="nav-item">Osaka</a>
-        <a href="#day8" class="nav-item">Day 8</a>
+        <a href="#apps" class="nav-item">📱 Apps</a>
+        <a href="#tokyo" class="nav-item">🗼 Tokyo</a>
+        <a href="#osaka" class="nav-item">🐙 Osaka</a>
+        <a href="#day8" class="nav-item active">Day 8</a>
     </nav>
 
     <div class="container">
-
+        
         <!-- APPS -->
-        <h2 id="apps" style="text-align:center; font-family:'Zen Maru Gothic'; font-weight:900; margin-bottom:10px;">📱 SURVIVAL KIT</h2>
-        <div class="card apps-showcase">
-            <img src="assets/japan_travel_apps.png" alt="Apps" class="apps-img">
-            <div class="app-links">
-                <a href="https://apps.apple.com/us/app/google-maps/id585027354" class="app-btn">🗺️ Google Maps</a>
-                <a href="https://apps.apple.com/us/app/ubigi-esim-internet/id1435201193" class="app-btn">📶 Ubigi eSIM</a>
-                <a href="https://apps.apple.com/us/app/smartex-app/id1244066031" class="app-btn">🚄 SmartEX</a>
+        <h2 id="apps" style="text-align:center; font-family:'Zen Maru Gothic'; margin-bottom:10px;">🎒 Survival Kit</h2>
+        <div class="card" style="text-align:center;">
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+                <a href="https://apps.apple.com/us/app/google-maps/id585027354" style="background:#f0f0f0; padding:15px; border-radius:15px; text-decoration:none; color:black; font-weight:700;">
+                    🗺️<br>Maps
+                </a>
+                <a href="https://apps.apple.com/us/app/ubigi-esim-internet/id1435201193" style="background:#f0f0f0; padding:15px; border-radius:15px; text-decoration:none; color:black; font-weight:700;">
+                    📶<br>Ubigi
+                </a>
+                <a href="https://apps.apple.com/us/app/google-translate/id414706506" style="background:#f0f0f0; padding:15px; border-radius:15px; text-decoration:none; color:black; font-weight:700;">
+                    🗣️<br>Translate
+                </a>
             </div>
         </div>
 
-        <!-- TOKYO SECTION -->
+        <!-- TOKYO -->
         <div class="city-header" id="tokyo">
-            <div class="city-title">🗼 TOKYO</div>
+            <h2 class="city-title">🗼 TOKYO</h2>
             <div class="city-dates">Days 1 - 3</div>
         </div>
 
         <!-- DAY 1 -->
         <div class="card">
             <span class="tag">DAY 1 • SATURDAY</span>
-            <h3>Arrival & Shinjuku</h3>
+            <h3>Arrival & Noodles</h3>
             <div class="timeline-item">
                 <div class="time-badge">15:00</div>
-                <div class="content">Land at <strong><a href="https://www.google.com/maps/search/?api=1&query=Haneda+Airport" class="map-link">Haneda Airport</a></strong>.</div>
+                <div class="content">Land at <strong>Haneda Airport</strong>.</div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">16:00</div>
                 <div class="content">
-                    Limousine Bus to <a href="https://www.google.com/maps/search/?api=1&query=Shinjuku+West+Exit" class="map-link">Shinjuku</a>.
+                    <span class="transport-badge taxi">BUS</span> Limousine Bus to Shinjuku.
                     <span class="price-tag jpy-price" data-yen="3200">¥3,200</span>
                 </div>
             </div>
-            <div class="pro-tip"><strong>Tip:</strong> Buy Limousine Bus tickets at the orange counter in Arrivals.</div>
             <div class="timeline-item">
                 <div class="time-badge">20:00</div>
-                <div class="content">Dinner: <strong><a href="https://www.google.com/maps/search/?api=1&query=Tsurutontan+Shinjuku" class="map-link">Tsurutontan Udon</a></strong>.</div>
-            </div>
-            <div class="nearby-box">
-                <strong>🎯 Nearby:</strong> 
-                <a href="https://www.google.com/maps/search/?api=1&query=Godzilla+Head+Shinjuku" class="map-link">Godzilla Head</a> & 
-                <a href="https://www.google.com/maps/search/?api=1&query=Golden+Gai+Shinjuku" class="map-link">Golden Gai</a>.
+                <div class="content">
+                    Dinner: <strong><a href="https://www.google.com/maps/search/?api=1&query=Tsurutontan+Shinjuku" class="map-link">Tsurutontan Udon</a></strong>.
+                    <div class="dish-badge">🍜 Try: Creamy Mentaiko Udon</div>
+                </div>
             </div>
         </div>
 
         <!-- DAY 2 -->
         <div class="card">
             <span class="tag">DAY 2 • SUNDAY</span>
-            <h3>Sophisticated Tokyo</h3>
+            <h3>Harajuku Vibes</h3>
             <div class="timeline-item">
                 <div class="time-badge">09:30</div>
-                <div class="content"><strong><a href="https://www.google.com/maps/search/?api=1&query=Meiji+Shrine+Yoyogi" class="map-link">Meiji Shrine</a></strong> & Antique Market.</div>
+                <div class="content"><strong>Meiji Shrine</strong> Walk.</div>
             </div>
             <div class="timeline-item">
-                <div class="time-badge">Treat</div>
-                <div class="content">🍰 <strong><a href="https://www.google.com/maps/search/?api=1&query=Gariguette+Omotesando" class="map-link">Gariguette</a></strong>. Viral Mille-presse.</div>
+                <div class="time-badge">11:00</div>
+                <div class="content">
+                    Sweet: <strong><a href="https://www.google.com/maps/search/?api=1&query=Gariguette+Omotesando" class="map-link">Gariguette</a></strong>.
+                    <div class="dish-badge">🍓 Order: Napoleon (Strawberry)</div>
+                </div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">16:30</div>
                 <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Shibuya+Sky" class="map-link">Shibuya Sky</a></strong> (Sunset).
+                    <strong>Shibuya Sky</strong> (Sunset).
                     <span class="price-tag jpy-price" data-yen="2500">¥2,500</span>
-                    <br><a href="https://www.shibuya-scramble-square.com/sky/ticket/" target="_blank" class="btn">Book Now</a>
                 </div>
-            </div>
-            <div class="nearby-box">
-                <strong>🎯 Nearby:</strong> 
-                <a href="https://www.google.com/maps/search/?api=1&query=Nintendo+Tokyo+Parco" class="map-link">Nintendo Tokyo</a>.
             </div>
         </div>
 
         <!-- DAY 3 -->
         <div class="card">
             <span class="tag">DAY 3 • MONDAY</span>
-            <h3>Asakusa & teamLab</h3>
+            <h3>Old Tokyo</h3>
             <div class="timeline-item">
                 <div class="time-badge">10:30</div>
-                <div class="content"><strong><a href="https://www.google.com/maps/search/?api=1&query=Senso-ji+Temple" class="map-link">Senso-ji Temple</a></strong>.</div>
+                <div class="content"><strong>Senso-ji Temple</strong>.</div>
             </div>
             <div class="timeline-item">
-                <div class="time-badge">Lunch</div>
-                <div class="content">🍤 <strong><a href="https://www.google.com/maps/search/?api=1&query=Daikokuya+Tempura" class="map-link">Daikokuya Tempura</a></strong>.</div>
+                <div class="time-badge">12:00</div>
+                <div class="content">
+                    Lunch: <strong><a href="https://www.google.com/maps/search/?api=1&query=Daikokuya+Tempura" class="map-link">Daikokuya Tempura</a></strong>.
+                    <div class="local-phrase">🗣️ Local Phrase: <strong>"Oishii!"</strong> (Delicious!)</div>
+                </div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">16:00</div>
-                <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=teamLab+Planets" class="map-link">teamLab Planets</a></strong>.
-                    <span class="price-tag jpy-price" data-yen="3800">¥3,800</span>
-                    <br><a href="https://planets.teamlab.art/tokyo/" target="_blank" class="btn">Book Now</a>
-                </div>
-            </div>
-            <div class="nearby-box">
-                <strong>🎯 Nearby:</strong> 
-                <a href="https://www.google.com/maps/search/?api=1&query=Hanayashiki" class="map-link">Hanayashiki Park</a>.
+                <div class="content"><strong>teamLab Planets</strong> (Barefoot Art).</div>
             </div>
         </div>
 
-        <!-- OSAKA SECTION -->
+        <!-- OSAKA -->
         <div class="city-header" id="osaka">
-            <div class="city-title">🐙 OSAKA BASE</div>
+            <h2 class="city-title">🐙 OSAKA BASE</h2>
             <div class="city-dates">Days 4 - 8</div>
         </div>
 
         <!-- DAY 4 -->
         <div class="card">
             <span class="tag">DAY 4 • TUESDAY</span>
-            <h3>To Osaka (Food Capital)</h3>
+            <h3>Bullet Train</h3>
             <div class="timeline-item">
                 <div class="time-badge">10:00</div>
                 <div class="content">
-                    <strong>Shinkansen</strong> to <a href="https://www.google.com/maps/search/?api=1&query=Shin-Osaka+Station" class="map-link">Shin-Osaka</a>.
+                    <span class="transport-badge train">SHINKANSEN</span> To Osaka.
                     <span class="price-tag jpy-price" data-yen="14720">¥14,720</span>
+                    <div style="font-size:0.8rem; margin-top:5px; color:var(--accent);">🗻 View: Sit on Right Side (Seat E).</div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="time-badge">16:00</div>
-                <div class="content">⛩️ <strong><a href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha" class="map-link">Fushimi Inari Shrine</a></strong>.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">Food</div>
+                <div class="time-badge">18:00</div>
                 <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Takoyaki+Wanaka+Dotonbori" class="map-link">Takoyaki Wanaka</a></strong> & 
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=10+Yen+Coin+Osaka" class="map-link">10 Yen Coin</a></strong>.
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Takoyaki+Wanaka+Dotonbori" class="map-link">Takoyaki Wanaka</a></strong>.
+                    <div class="dish-badge">🐙 Try: Ooiri (4 flavor variety)</div>
                 </div>
             </div>
         </div>
@@ -466,139 +399,98 @@
         <!-- DAY 5 -->
         <div class="card">
             <span class="tag">DAY 5 • WEDNESDAY</span>
-            <h3>Iconic Kyoto</h3>
+            <h3>Kyoto Zen</h3>
             <div class="timeline-item">
                 <div class="time-badge">09:45</div>
-                <div class="content">☕ <strong><a href="https://www.google.com/maps/search/?api=1&query=%25+Arabica+Kyoto+Arashiyama" class="map-link">% Arabica Arashiyama</a></strong>.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">14:30</div>
                 <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Kinkaku-ji" class="map-link">Kinkaku-ji</a></strong> (Golden Pavilion).
-                    <span class="price-tag jpy-price" data-yen="500">¥500</span>
+                    Coffee: <strong><a href="https://www.google.com/maps/search/?api=1&query=%25+Arabica+Kyoto+Arashiyama" class="map-link">% Arabica</a></strong>.
                 </div>
-            </div>
-            <div class="nearby-box">
-                <strong>🎯 Nearby:</strong> 
-                <a href="https://www.google.com/maps/search/?api=1&query=Monkey+Park+Iwatayama" class="map-link">Monkey Park</a>.
-            </div>
-        </div>
-
-        <!-- DAY 6 -->
-        <div class="card">
-            <span class="tag">DAY 6 • THURSDAY</span>
-            <h3>Hiroshima & Himeji</h3>
-            <div class="timeline-item">
-                <div class="time-badge">09:00</div>
-                <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Himeji+Castle" class="map-link">Himeji Castle</a></strong>.
-                    <span class="price-tag jpy-price" data-yen="1000">¥1,000</span>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">15:00</div>
-                <div class="content">🕊️ <strong><a href="https://www.google.com/maps/search/?api=1&query=Peace+Memorial+Park+Hiroshima" class="map-link">Peace Memorial Park</a></strong>.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">17:30</div>
-                <div class="content">⛩️ <strong><a href="https://www.google.com/maps/search/?api=1&query=Itsukushima+Jinja" class="map-link">Miyajima Island</a></strong>.</div>
-            </div>
-        </div>
-
-        <!-- DAY 7 -->
-        <div class="card">
-            <span class="tag">DAY 7 • FRIDAY</span>
-            <h3>Sumo & Hipster Osaka</h3>
-            <div class="timeline-item">
-                <div class="time-badge">10:00</div>
-                <div class="content">🤼 <strong><a href="https://www.google.com/maps/search/?api=1&query=Osaka+Sumo+Experience" class="map-link">Osaka Sumo Experience</a></strong>.</div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">12:45</div>
-                <div class="content">🧀 <strong><a href="https://www.google.com/maps/search/?api=1&query=Rikuro+Ojisan+Namba" class="map-link">Rikuro Ojisan</a></strong>.</div>
-            </div>
-        </div>
-
-        <!-- DAY 8 (NEW) -->
-        <div class="card" id="day8" style="border: 2px solid var(--accent);">
-            <span class="tag" style="background:var(--accent); color:white;">DAY 8 • SATURDAY</span>
-            <h3>Market Morning & Fly Out</h3>
-            <div class="timeline-item">
-                <div class="time-badge">09:00</div>
-                <div class="content">🐟 <strong><a href="https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market" class="map-link">Kuromon Ichiba Market</a></strong>.</div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">11:00</div>
-                <div class="content">☕ <strong><a href="https://www.google.com/maps/search/?api=1&query=Orange+Street+Osaka" class="map-link">Orange Street</a></strong> (Horie).</div>
+                <div class="content">
+                    Snack: <strong>Bamboo Grove</strong> Street Food.
+                    <div class="dish-badge">🧀 Must Eat: Yuba Cheese Croquette</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 6 & 7 (Compressed for focus) -->
+        <div class="card">
+            <span class="tag">DAYS 6 & 7 • THU/FRI</span>
+            <h3>Hiroshima & Dotonbori</h3>
+            <div class="timeline-item">
+                <div class="time-badge">Day 6</div>
+                <div class="content"><strong>Himeji Castle</strong> & <strong>Miyajima Island</strong> (Floating Gate).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Day 7</div>
+                <div class="content">
+                    <strong>Sumo Experience</strong> & <strong>Rikuro Ojisan</strong>.
+                    <div class="dish-badge">🍰 Try: Jiggly Cheesecake</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 8 (FEATURED) -->
+        <div class="card" id="day8" style="background: linear-gradient(135deg, #fff, #FFF5F5); border: 2px solid var(--primary);">
+            <span class="tag" style="color:var(--primary);">DAY 8 • SATURDAY</span>
+            <h3 style="color:var(--primary);">Grand Finale</h3>
+            <div class="timeline-item">
+                <div class="time-badge">09:00</div>
+                <div class="content">
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Kuromon+Ichiba+Market" class="map-link">Kuromon Market</a></strong>.
+                    <div class="dish-badge">🥩 Must Eat: Wagyu Beef Skewer</div>
+                    <div class="dish-badge">🐚 Must Eat: Grilled Butter Scallop</div>
+                    <div class="dish-badge">🍣 Must Eat: O-Toro Sushi (Fatty Tuna)</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">11:30</div>
+                <div class="content">
+                    Shopping: <strong><a href="https://www.google.com/maps/search/?api=1&query=Orange+Street+Osaka" class="map-link">Orange Street</a></strong>.
+                    <br><span style="font-size:0.8rem; color:#666;">Supreme, BAPE, & Hipster Cafes.</span>
+                </div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">15:00</div>
-                <div class="content">🛍️ <strong><a href="https://www.google.com/maps/search/?api=1&query=Rinku+Premium+Outlets" class="map-link">Rinku Premium Outlets</a></strong>.</div>
+                <div class="content">Last Stop: <strong>Rinku Premium Outlets</strong>.</div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">18:00</div>
-                <div class="content">✈️ <strong>Fly Out from KIX</strong>.</div>
+                <div class="content">✈️ <strong>Depart KIX Airport</strong>.</div>
             </div>
         </div>
 
-        <div class="footer">
-            Curated with extreme detail and research by <strong>Arya Wadhwa</strong>
+        <div style="text-align:center; padding:40px; color:#aaa; font-size:0.8rem;">
+            Have an amazing trip, Arya! ✈️🇯🇵
         </div>
+
     </div>
 
-    <!-- LIVE CURRENCY & WEATHER SCRIPTS -->
+    <!-- SCRIPTS -->
     <script>
-        // Currency
-        async function fetchRates() {
+        async function fetchRates(){
             try {
-                const res = await fetch('https://api.exchangerate-api.com/v4/latest/JPY');
-                const data = await res.json();
-                const inrRate = data.rates.INR;
-                const usdRate = data.rates.USD;
-                
-                document.getElementById('inrRate').innerText = '₹' + (1000 * inrRate).toFixed(0);
-                // document.getElementById('usdRate').innerText = '$' + (1000 * usdRate).toFixed(2);
-
-                document.querySelectorAll('.jpy-price').forEach(el => {
-                    const yen = el.getAttribute('data-yen');
-                    if(yen) {
-                        const inr = (yen * inrRate).toFixed(0);
-                        const usd = (yen * usdRate).toFixed(0);
-                        el.innerHTML = `¥${Number(yen).toLocaleString()} | ₹${Number(inr).toLocaleString()} | $${usd}`;
-                    }
+                const r = await fetch('https://api.exchangerate-api.com/v4/latest/JPY');
+                const d = await r.json();
+                document.getElementById('inrRate').innerText = '₹' + (1000 * d.rates.INR).toFixed(0);
+                document.querySelectorAll('.jpy-price').forEach(e => {
+                    const y = e.getAttribute('data-yen');
+                    if(y) e.innerHTML = `¥${Number(y).toLocaleString()} | ₹${(y * d.rates.INR).toFixed(0)}`;
                 });
-            } catch (e) { console.error("Currency error", e); }
+            } catch(e){}
         }
-
-        // Mount Fuji Visibility (OpenMeteo API)
-        async function checkFujiVisibility() {
+        async function checkFujiVisibility(){
+            document.getElementById('fujiStatus').innerText = "..";
             try {
-                document.getElementById('fujiStatus').innerText = "Checking...";
-                const lat = 35.3606;
-                const lon = 138.7274;
-                const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=cloud_cover,visibility`);
-                const data = await res.json();
-                
-                const cloudCover = data.current.cloud_cover; 
-                const statusEl = document.getElementById('fujiStatus');
-                
-                if (cloudCover < 30) {
-                    statusEl.innerText = "Clear View! 🟢";
-                } else if (cloudCover < 70) {
-                    statusEl.innerText = "Partly Cloudy 🟡";
-                } else {
-                    statusEl.innerText = "Obscured ☁️";
-                }
-            } catch (e) {
-                console.error("Fuji weather error", e);
-                document.getElementById('fujiStatus').innerText = "Offline";
-            }
+                const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.36&longitude=138.72&current=cloud_cover');
+                const d = await r.json();
+                const c = d.current.cloud_cover;
+                document.getElementById('fujiStatus').innerText = c < 30 ? "Clear 🟢" : (c < 70 ? "Cloudy 🟡" : "Hidden ☁️");
+            } catch(e){ document.getElementById('fujiStatus').innerText = "Offline"; }
         }
-        
-        // Init
-        fetchRates();
-        checkFujiVisibility();
+        fetchRates(); checkFujiVisibility();
     </script>
-
 </body>
 </html>
