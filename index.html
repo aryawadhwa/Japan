@@ -11,9 +11,9 @@
             --primary: #FF3B30; /* Japan Red */
             --accent: #007AFF; /* Apple Blue */
             --bg: #F5F5F7;
-            --glass: rgba(255, 255, 255, 0.9);
-            --shadow: 0 10px 40px rgba(0,0,0,0.08);
-            --border: 1px solid rgba(0,0,0,0.06);
+            --glass: rgba(255, 255, 255, 0.95);
+            --shadow: 0 8px 30px rgba(0,0,0,0.06);
+            --border: 1px solid rgba(0,0,0,0.08);
         }
 
         html { scroll-behavior: smooth; }
@@ -28,24 +28,25 @@
         /* Sticky Currency Badge */
         .currency-badge {
             position: fixed;
-            top: 80px;
+            bottom: 20px;
             right: 20px;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             color: white;
-            padding: 10px 15px;
+            padding: 10px 20px;
             border-radius: 30px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
             backdrop-filter: blur(10px);
-            z-index: 99;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             display: flex;
-            gap: 10px;
+            gap: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
         }
 
         /* Hero */
         header {
-            height: 55vh;
+            height: 60vh;
             background: url('assets/tokyo_neon_night_1769802691637.png') center/cover no-repeat fixed;
             display: flex;
             flex-direction: column;
@@ -58,18 +59,18 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
         }
         .hero-content { z-index: 1; text-align: center; }
         h1 {
             font-family: 'Zen Maru Gothic', sans-serif;
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 0 4px 15px rgba(0,0,0,0.4);
         }
-        .subtitle { font-size: 1.1rem; margin-top: 10px; opacity: 0.95; }
+        .subtitle { font-size: 1.2rem; margin-top: 10px; opacity: 0.95; font-weight: 300; }
 
         /* Nav */
         .nav-strip {
@@ -82,7 +83,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            padding: 12px 0;
+            padding: 15px 0;
             overflow-x: auto;
         }
         .nav-item {
@@ -95,37 +96,40 @@
             white-space: nowrap;
             transition: all 0.2s;
         }
-        .nav-item:hover { background: var(--bg); color: var(--primary); }
+        .nav-item:hover { background: #E5E5EA; color: var(--primary); }
 
         /* Content */
         .container { max-width: 950px; margin: 40px auto; padding: 0 20px; }
         .section-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
-            margin: 60px 0 25px;
+            margin: 80px 0 30px;
             color: #1D1D1F;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            border-bottom: 2px solid #E5E5EA;
+            padding-bottom: 10px;
         }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-
         /* Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
         .card {
             background: white;
-            border-radius: 24px;
+            border-radius: 20px;
             padding: 30px;
             box-shadow: var(--shadow);
             border: var(--border);
             transition: transform 0.2s;
+            position: relative;
+            overflow: hidden;
         }
-        .card:hover { transform: translateY(-5px); }
+        .card:hover { transform: translateY(-3px); }
         .tag {
             background: #F2F2F7;
-            padding: 5px 12px;
+            padding: 6px 12px;
             border-radius: 8px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -133,77 +137,88 @@
             display: inline-block;
             margin-bottom: 15px;
         }
-        .card h3 { margin: 0 0 15px; font-size: 1.5rem; }
+        .card h3 { margin: 0 0 20px; font-size: 1.6rem; letter-spacing: -0.5px; }
 
         /* Timeline Items */
         .timeline-item {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
+            gap: 18px;
+            margin-bottom: 25px;
             position: relative;
         }
         .timeline-item::after {
             content: '';
             position: absolute;
-            left: 24px;
-            top: 25px;
-            bottom: -25px;
+            left: 25px;
+            top: 30px;
+            bottom: -30px;
             width: 2px;
             background: #F2F2F7;
         }
         .timeline-item:last-child::after { display: none; }
         
         .time-badge {
-            min-width: 50px;
-            height: 25px;
+            min-width: 55px;
+            height: 28px;
             background: #E5E5EA;
-            border-radius: 6px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 700;
             color: #1D1D1F;
         }
         .content { flex: 1; }
         .content strong { font-weight: 700; color: #000; }
         .price-tag {
-            display: inline-block;
-            font-size: 0.8rem;
-            color: #8E8E93;
-            margin-left: 5px;
-            background: #F9F9F9;
-            padding: 2px 6px;
-            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #666;
+            margin-left: 8px;
+            background: #F5F5F7;
+            padding: 2px 8px;
+            border-radius: 6px;
             border: 1px solid #E5E5EA;
         }
+
+        /* Pro Tip Box */
+        .pro-tip {
+            background: #FFF8E1;
+            border-left: 4px solid #FFCC00;
+            padding: 12px 15px;
+            font-size: 0.85rem;
+            margin: 5px 0 15px 0;
+            border-radius: 0 8px 8px 0;
+            color: #5D4037;
+        }
+        .pro-tip strong { color: #F57F17; }
         
         /* Nearby Fun Section */
         .nearby-box {
-            background: #F2F2F7;
-            padding: 15px;
+            background: #FAFAFA;
+            padding: 20px;
             border-radius: 12px;
-            margin-top: 10px;
-            font-size: 0.85rem;
+            margin-top: 15px;
+            border: 1px dashed #E5E5EA;
         }
-        .nearby-title { font-weight: 700; color: var(--accent); margin-bottom: 5px; display: block; }
-        .nearby-item { margin-bottom: 3px; display: flex; gap: 6px; }
+        .nearby-title { font-weight: 700; color: var(--accent); margin-bottom: 8px; display: block; font-size: 0.9rem; }
+        .nearby-item { margin-bottom: 5px; display: flex; gap: 8px; font-size: 0.9rem; }
+
+        /* Survival Grid */
+        .survival-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .info-box { background: #F9F9FB; padding: 20px; border-radius: 16px; text-align: center; }
+        .info-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
+        .info-title { font-weight: 700; margin-bottom: 5px; display: block; }
+        .info-desc { font-size: 0.85rem; color: #666; }
 
         /* Apps Section */
-        .apps-showcase {
-            text-align: center;
-            margin: 40px 0;
-        }
-        .apps-img {
-            width: 100%;
-            max-width: 500px;
-            margin: 20px auto;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .app-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
+        .apps-showcase { text-align: center; margin: 40px 0; }
+        .apps-img { width: 100%; max-width: 500px; margin: 20px auto; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .app-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 25px; }
         .app-btn {
-            background: black;
+            background: #111;
             color: white;
             text-decoration: none;
             padding: 10px 20px;
@@ -223,12 +238,12 @@
             text-decoration: none;
             padding: 8px 20px;
             border-radius: 20px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             display: inline-block;
-            margin-top: 5px;
+            margin-top: 8px;
         }
-        .btn.map { background: transparent; color: var(--accent); border: 2px solid var(--accent); padding: 6px 18px; }
+        .btn:hover { opacity: 0.9; }
 
         /* Footer */
         .footer {
@@ -243,7 +258,7 @@
         @media (max-width: 600px) {
             h1 { font-size: 2.2rem; }
             .nav-strip { justify-content: flex-start; padding-left: 20px; }
-            .currency-badge { top: auto; bottom: 20px; right: 20px; }
+            .currency-badge { width: 90%; justify-content: center; bottom: 10px; right: 5%; }
         }
     </style>
 </head>
@@ -261,7 +276,8 @@
     </header>
 
     <nav class="nav-strip">
-        <a href="#apps" class="nav-item">Apps</a>
+        <a href="#apps" class="nav-item">Essentials</a>
+        <a href="#hotels" class="nav-item">Hotels</a>
         <a href="#day1" class="nav-item">Day 1</a>
         <a href="#day2" class="nav-item">Day 2</a>
         <a href="#day3" class="nav-item">Day 3</a>
@@ -272,17 +288,60 @@
 
     <div class="container">
 
-        <!-- APPS SECTION -->
-        <h2 id="apps" class="section-title">📱 Digital Essentials</h2>
+        <!-- DIGITAL ESSENTIALS -->
+        <h2 id="apps" class="section-title">📱 Digital Survival Kit</h2>
         <div class="card apps-showcase">
-            <h3>Must-Have Travel Apps</h3>
-            <p>Download these before you fly for smooth logistics.</p>
+            <h3>Download Before You Fly</h3>
             <img src="assets/japan_travel_apps.png" alt="Travel Apps" class="apps-img">
             <div class="app-links">
                 <a href="https://apps.apple.com/us/app/google-maps/id585027354" class="app-btn">🗺️ Google Maps</a>
                 <a href="https://apps.apple.com/us/app/ubigi-esim-internet/id1435201193" class="app-btn">📶 Ubigi eSIM</a>
-                <a href="https://apps.apple.com/us/app/smartex-app/id1244066031" class="app-btn">🚄 SmartEX (Shinkansen)</a>
-                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.maps" class="app-btn">🤖 G-Maps (Android)</a>
+                <a href="https://apps.apple.com/us/app/smartex-app/id1244066031" class="app-btn">🚄 SmartEX</a>
+                <a href="https://apps.apple.com/us/app/google-translate/id414706506" class="app-btn">🗣️ Translator</a>
+            </div>
+        </div>
+
+        <!-- NEW SURVIVAL SECTION -->
+        <h2 class="section-title">🎒 Travel Cheat Sheet</h2>
+        <div class="survival-grid">
+            <div class="info-box">
+                <span class="info-icon">🚮</span>
+                <span class="info-title">No Trash Cins</span>
+                <span class="info-desc">Carry a small plastic bag. Dispose at hotels/konbini.</span>
+            </div>
+            <div class="info-box">
+                <span class="info-icon">🤫</span>
+                <span class="info-title">Quiet Trains</span>
+                <span class="info-desc">No phone calls. Set to silent mode.</span>
+            </div>
+            <div class="info-box">
+                <span class="info-icon">💳</span>
+                <span class="info-title">Cash is King</span>
+                <span class="info-desc">Carry ¥20,000. Many ticket machines are cash only.</span>
+            </div>
+            <div class="info-box">
+                <span class="info-icon">🆘</span>
+                <span class="info-title">Emergency</span>
+                <span class="info-desc">Police: 110<br>Ambulance: 119</span>
+            </div>
+        </div>
+
+        <!-- HOTELS -->
+        <h2 id="hotels" class="section-title">🏨 Accommodation</h2>
+        <div class="grid">
+            <div class="card">
+                <span class="tag">TOKYO BASE</span>
+                <h3>JR Kyushu Blossom</h3>
+                <p>3-min walk from Shinjuku Station. Safe, modern.</p>
+                <div class="pro-tip"><strong>Alt Option:</strong> Hotel Century Southern Tower (Better Views).</div>
+                <a href="https://www.agoda.com/jr-kyushu-hotel-blossom-shinjuku/hotel/tokyo-jp.html?cid=1844104" target="_blank" class="btn">Check Rates</a>
+            </div>
+            <div class="card">
+                <span class="tag">OSAKA BASE</span>
+                <h3>Hotel Granvia Osaka</h3>
+                <p>Located <strong>inside</strong> Osaka Station. Zero commute.</p>
+                <div class="pro-tip"><strong>Alt Option:</strong> Swissotel Nankai (Luxury/Namba).</div>
+                <a href="https://www.agoda.com/hotel-granvia-osaka/hotel/osaka-jp.html?cid=1844104" target="_blank" class="btn">Check Rates</a>
             </div>
         </div>
 
@@ -293,18 +352,23 @@
             <h3>Arrival & Shinjuku</h3>
             <div class="timeline-item">
                 <div class="time-badge">15:00</div>
-                <div class="content">Land at <strong>Haneda Airport</strong>.</div>
+                <div class="content">Land at <strong>Haneda Airport (HND)</strong>.</div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">16:00</div>
                 <div class="content">
-                    Limousine Bus to Shinjuku. 
-                    <span class="price-tag">¥3,200 | ₹1,850 | $21</span>
+                    Limousine Bus to Shinjuku West.
+                    <span class="price-tag">¥3,200 | ₹1,850</span>
                 </div>
             </div>
+            <div class="pro-tip"><strong>Tip:</strong> Buy Limousine Bus tickets at the orange counter in Arrivals. Door-to-door service.</div>
             <div class="timeline-item">
                 <div class="time-badge">19:00</div>
                 <div class="content"><strong>Tokyo Metro Govt Building</strong>. Free night view.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">20:00</div>
+                <div class="content">Dinner: <strong>Tsurutontan Udon</strong>. (Kabukicho).</div>
             </div>
             <div class="nearby-box">
                 <span class="nearby-title">🎯 Nearby Fun</span>
@@ -318,25 +382,41 @@
             <span class="tag">DAY 2 • SUNDAY</span>
             <h3>Sophisticated Tokyo</h3>
             <div class="timeline-item">
+                <div class="time-badge">08:00</div>
+                <div class="content">Breakfast: <strong>Dean & DeLuca</strong> (NEWoMan).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">09:00</div>
+                <div class="content">Taxi to Yoyogi Park (Sangubashi Gate). <span class="price-tag">Avoid Harajuku Station</span></div>
+            </div>
+            <div class="timeline-item">
                 <div class="time-badge">09:30</div>
-                <div class="content"><strong>Meiji Shrine</strong>. Walk through the forest.</div>
+                <div class="content"><strong>Meiji Shrine</strong> & Antique Market.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Lunch</div>
+                <div class="content">🥞 <strong>A Happy Pancake</strong> (Omotesando).</div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">Treat</div>
-                <div class="content">🍰 <strong>Gariguette</strong>. Viral Mille-presse (Omotesando).</div>
+                <div class="content">🍰 <strong>Gariguette</strong>. Viral Mille-presse.</div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">16:30</div>
                 <div class="content">
                     <strong>Shibuya Sky</strong> (Sunset).
-                    <span class="price-tag">¥2,500 | ₹1,450 | $17</span>
+                    <span class="price-tag">¥2,500</span>
                     <br><a href="https://www.shibuya-scramble-square.com/sky/ticket/" target="_blank" class="btn">Book Now</a>
                 </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Dinner</div>
+                <div class="content">🍽️ <strong>Butagumi</strong>. Premier Tonkatsu (Nishiazabu).</div>
             </div>
             <div class="nearby-box">
                 <span class="nearby-title">🎯 Nearby Fun</span>
                 <div class="nearby-item">🔹 <strong>Nintendo Tokyo</strong>: Shibuya PARCO (6F).</div>
-                <div class="nearby-item">🔹 <strong>Miyashita Park</strong>: Rooftop park & skate vibe.</div>
+                <div class="nearby-item">🔹 <strong>Miyashita Park</strong>: Rooftop park.</div>
             </div>
         </div>
 
@@ -344,22 +424,39 @@
         <div class="card" id="day3">
             <span class="tag">DAY 3 • MONDAY</span>
             <h3>Asakusa & teamLab</h3>
+            <div class="pro-tip"><strong>Logistics:</strong> Ship large luggage to Osaka hotel today (Ask front desk).</div>
             <div class="timeline-item">
                 <div class="time-badge">10:30</div>
                 <div class="content"><strong>Senso-ji Temple</strong>. Giant Red Lantern.</div>
             </div>
             <div class="timeline-item">
+                <div class="time-badge">Snack</div>
+                <div class="content">🍠 <strong>Imo Pippi</strong> (1mm Potato softness).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Lunch</div>
+                <div class="content">🍤 <strong>Daikokuya Tempura</strong>.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">14:00</div>
+                <div class="content">Water Bus to Hamarikyu Gardens.</div>
+            </div>
+            <div class="timeline-item">
                 <div class="time-badge">16:00</div>
                 <div class="content">
                     <strong>teamLab Planets</strong> (Digital Art).
-                    <span class="price-tag">¥3,800 | ₹2,200 | $25</span>
+                    <span class="price-tag">¥3,800</span>
                     <br><a href="https://planets.teamlab.art/tokyo/" target="_blank" class="btn">Book Now</a>
                 </div>
             </div>
+            <div class="timeline-item">
+                <div class="time-badge">20:00</div>
+                <div class="content">Dinner: <strong>Ginza Lion Beer Hall</strong> (Historic).</div>
+            </div>
             <div class="nearby-box">
                 <span class="nearby-title">🎯 Nearby Fun</span>
-                <div class="nearby-item">🔹 <strong>Hanayashiki</strong>: Japan's oldest amusement park.</div>
-                <div class="nearby-item">🔹 <strong>Nakamise Dori</strong>: Souvenir & snack street.</div>
+                <div class="nearby-item">🔹 <strong>Hanayashiki</strong>: Oldest amusement park.</div>
+                <div class="nearby-item">🔹 <strong>Nakamise Dori</strong>: Souvenir street.</div>
             </div>
         </div>
 
@@ -371,20 +468,27 @@
                 <div class="time-badge">10:00</div>
                 <div class="content">
                     <strong>Shinkansen</strong> to Osaka.
-                    <span class="price-tag">¥14,720 | ₹8,500 | $98</span>
+                    <span class="price-tag">¥14,720</span>
                 </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">16:00</div>
+                <div class="content">⛩️ <strong>Fushimi Inari Shrine</strong> (10,000 Gates).</div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">Food</div>
                 <div class="content">
                     <strong>Takoyaki Wanaka</strong> & <strong>10 Yen Coin</strong>.
-                    <span class="price-tag">~¥500 | ₹290 | $3</span>
                 </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Dinner</div>
+                <div class="content">🥞 <strong>Okonomiyaki Okaru</strong> (Disney Mayo Art).</div>
             </div>
             <div class="nearby-box">
                 <span class="nearby-title">🎯 Nearby Fun</span>
-                <div class="nearby-item">🔹 <strong>Don Quijote Ferris Wheel</strong>: Rides over the river.</div>
-                <div class="nearby-item">🔹 <strong>Tombori River Cruise</strong>: Neon excitement.</div>
+                <div class="nearby-item">🔹 <strong>Don Quijote Ferris Wheel</strong>: Dotonbori.</div>
+                <div class="nearby-item">🔹 <strong>Tombori River Cruise</strong>: Neon lights.</div>
             </div>
         </div>
 
@@ -393,24 +497,32 @@
             <span class="tag">DAY 5 • WEDNESDAY</span>
             <h3>Iconic Kyoto</h3>
             <div class="timeline-item">
+                <div class="time-badge">08:00</div>
+                <div class="content">Breakfast: <strong>Komeda's Coffee</strong>.</div>
+            </div>
+            <div class="timeline-item">
                 <div class="time-badge">09:45</div>
-                <div class="content">☕ <strong>% Arabica Arashiyama</strong>. World-famous coffee view.</div>
+                <div class="content">☕ <strong>% Arabica Arashiyama</strong>. World-class view.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">10:00</div>
+                <div class="content"><strong>Tenryu-ji Temple</strong>. <span class="price-tag">Skip Bamboo Grove (Crowded)</span></div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">14:30</div>
                 <div class="content">
                     <strong>Kinkaku-ji</strong> (Golden Pavilion).
-                    <span class="price-tag">¥500 | ₹290 | $3</span>
+                    <span class="price-tag">¥500</span>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="time-badge">16:30</div>
-                <div class="content">🍡 <strong>Mochi Mochi</strong>. 2 Chome-208-14 Kiyomizu.</div>
+                <div class="content">🍡 <strong>Mochi Mochi</strong>. (Kiyomizu area).</div>
             </div>
             <div class="nearby-box">
                 <span class="nearby-title">🎯 Nearby Fun</span>
-                <div class="nearby-item">🔹 <strong>Monkey Park Iwatayama</strong>: Wild monkeys & views.</div>
-                <div class="nearby-item">🔹 <strong>Kimono Forest</strong>: Randen Station (Arashiyama).</div>
+                <div class="nearby-item">🔹 <strong>Monkey Park Iwatayama</strong>.</div>
+                <div class="nearby-item">🔹 <strong>Kimono Forest</strong>: Randen Station.</div>
             </div>
         </div>
 
@@ -422,17 +534,47 @@
                 <div class="time-badge">09:00</div>
                 <div class="content">
                     <strong>Himeji Castle</strong>.
-                    <span class="price-tag">¥1,000 | ₹580 | $6.50</span>
+                    <span class="price-tag">¥1,000</span>
                 </div>
             </div>
             <div class="timeline-item">
+                <div class="time-badge">13:30</div>
+                <div class="content">Lunch: <strong>Okonomimura</strong> (Hiroshima Style).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">15:00</div>
+                <div class="content">🕊️ <strong>Peace Memorial Park</strong>.</div>
+            </div>
+            <div class="timeline-item">
                 <div class="time-badge">17:30</div>
-                <div class="content">⛩️ <strong>Miyajima Island</strong>. Floating Torii at sunset.</div>
+                <div class="content">⛩️ <strong>Miyajima Island</strong>. Floating Torii.</div>
             </div>
             <div class="nearby-box">
                 <span class="nearby-title">🎯 Nearby Fun</span>
-                <div class="nearby-item">🔹 <strong>Koko-en Garden</strong>: Next to Himeji Castle.</div>
-                <div class="nearby-item">🔹 <strong>Himeji Zoo</strong>: Located within castle grounds.</div>
+                <div class="nearby-item">🔹 <strong>Koko-en Garden</strong>: Next to castle.</div>
+                <div class="nearby-item">🔹 <strong>Himeji Zoo</strong>.</div>
+            </div>
+        </div>
+
+        <!-- DAY 7 -->
+        <div class="card" id="day7">
+            <span class="tag">DAY 7 • FRIDAY</span>
+            <h3>Sumo & Departure</h3>
+            <div class="timeline-item">
+                <div class="time-badge">10:00</div>
+                <div class="content">🤼 <strong>Osaka Sumo Experience</strong>.</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Gift</div>
+                <div class="content">🧀 <strong>Rikuro Ojisan</strong> (Jiggly Cheesecake).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Lunch</div>
+                <div class="content">🦀 <strong>Kani Doraku</strong> (Crab Feast).</div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">Departure</div>
+                <div class="content">Haruka Express to KIX Airport.</div>
             </div>
         </div>
 
