@@ -76,6 +76,7 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
 - **18:30** - 🚕 **Transport**: Walk (10 mins) or Taxi (3 mins) to Metro Govt Building.
 - **19:00** - 🏙️ **Tokyo Metro Govt Building**.
   - _Activity_: Free lush views of Tokyo at night.
+  - _Fun Nearby_: **Godzilla Head** (Toho Cinema) & **Golden Gai** bars.
 - **20:00** - 🍜 **Dinner**: **Tsurutontan Shinjuku**.
   - _Location_: Kabukicho area (Safe distinct part).
   - _Food_: Giant Udon bowls. Fun atmosphere.
@@ -133,6 +134,7 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
   - _Time_: 35 mins. Scenic river view.
 - **15:00** - 🍵 **Hama-rikyu Gardens**. (Teahouse on the lake).
 - **16:00** - 🌌 **teamLab Planets TOKYO** (Toyosu).
+  - _Price_: ¥3,800 (~$25).
   - _Transport_: Taxi from Hamarikyu (10 mins).
   - _Activity_: Immersive digital art museum. Walk barefoot through water and crystal lights. **Must book in advance**.
   - [**Book Tickets Here**](https://planets.teamlab.art/tokyo/)
