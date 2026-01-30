@@ -155,7 +155,9 @@ _Includes Transport Modes (🚕/🚆) and Travel Times for Parent-Friendly Plann
   - _Walk_: See the Glico Man sign.
   - _Visit_: **Amerika-mura** (Vintage shops).
   - _Snack_: **Takoyaki** (Octopus Balls) street stall.
-- **20:00** - 🥩 **Dinner**: **Matsusakaagyu Yakiniku M**. (High-end Beef BBQ).
+- **20:00** - 🥞 **Dinner**: **Okonomiyaki Okaru**.
+  - _Vibe_: Famous for **Disney character mayonnaise art** drawn on your pancake. Fun & delicious.
+  - [Google Maps](https://goo.gl/maps/OkonomiyakiOkaru)
 
 ### **Day 5: March 11 (Wed) - Iconic Kyoto**
 
