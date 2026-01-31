@@ -14,6 +14,7 @@
             --primary: #FF3B30;
             --accent: #007AFF;
             --success: #34C759;
+            --gold: #FFD700;
             --bg: #F2F2F7;
             --card-bg: #FFFFFF;
             --shadow: 0 8px 30px rgba(0,0,0,0.06);
@@ -34,7 +35,6 @@
         }
 
         /* --- COMPONENTS --- */
-        
         .dish-badge {
             display: inline-flex; align-items: center; gap: 5px;
             background: #FFF0F0; color: #D32F2F;
@@ -49,7 +49,6 @@
         .train { background: var(--success); }
         .taxi { background: #FF9500; }
 
-        /* Links */
         a.map-link {
             color: inherit; text-decoration: none;
             border-bottom: 2px solid rgba(0,0,0,0.1);
@@ -66,7 +65,6 @@
         }
 
         /* --- LAYOUT --- */
-
         header {
             height: 60vh;
             background: url('assets/tokyo_neon_night_1769802691637.png') center/cover no-repeat fixed;
@@ -110,6 +108,11 @@
             background: var(--card-bg); border-radius: 24px;
             padding: 25px; margin-bottom: 20px;
             box-shadow: var(--shadow); position: relative;
+            overflow: hidden;
+        }
+        .card-img-top {
+            width: calc(100% + 50px); height: 180px; object-fit: cover;
+            margin: -25px -25px 20px -25px;
         }
         .tag {
             font-size: 0.75rem; font-weight: 800; text-transform: uppercase;
@@ -119,9 +122,7 @@
         .card h3 { margin: 0 0 20px; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
 
         .timeline-item { display: flex; gap: 15px; margin-bottom: 25px; position: relative; }
-        .timeline-item::after {
-            content: ''; position: absolute; left: 24px; top: 35px; bottom: -35px; width: 2px; background: #F2F2F7;
-        }
+        .timeline-item::after { content: ''; position: absolute; left: 24px; top: 35px; bottom: -35px; width: 2px; background: #F2F2F7; }
         .timeline-item:last-child::after { display: none; }
         
         .time-badge {
@@ -132,8 +133,6 @@
             font-size: 0.8rem; font-weight: 800;
             color: #1D1D1F; flex-shrink: 0; line-height: 1;
         }
-        .time-badge span { font-size: 0.6rem; color: #86868B; margin-top: 2px; }
-
         .city-header {
             margin: 50px 0 20px; padding: 20px; text-align: center;
             background: white; border-radius: 20px; box-shadow: var(--shadow);
@@ -142,23 +141,15 @@
         #tokyo .city-header { border-color: var(--primary); }
         #osaka .city-header { border-color: var(--accent); }
 
-        /* Wallet */
+        /* Wallet & Interactive */
         .wallet-card {
             background: linear-gradient(135deg, #1C1C1E, #2C2C2E);
-            color: white; padding: 25px; border-radius: 24px;
-            margin-bottom: 30px;
+            color: white; padding: 25px; border-radius: 24px; margin-bottom: 30px;
         }
-        .wallet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .wallet-balance { font-size: 2.5rem; font-weight: 800; line-height: 1; }
-        
         .wallet-btn {
             background: rgba(255,255,255,0.1); border: none; color: white;
-            padding: 12px; border-radius: 12px; font-weight: 700; font-size: 0.9rem;
-            cursor: pointer; width: 100%;
+            padding: 12px; border-radius: 12px; font-weight: 700; width: 100%;
         }
-        .wallet-btn.add { background: var(--success); color: white; }
-        
-        /* Interactive */
         .checklist-item {
             display: flex; align-items: center; gap: 12px;
             padding: 12px 0; border-bottom: 1px solid #F2F2F7;
@@ -167,37 +158,15 @@
         .checklist-item.checked span { text-decoration: line-through; color: #aaa; }
 
         .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        .ems-btn {
-            background: #FF3B30; color: white; padding: 15px;
-            border-radius: 16px; text-align: center; text-decoration: none;
-            font-weight: 800; font-size: 1.2rem;
-        }
+        .ems-btn { background: #FF3B30; color: white; padding: 15px; border-radius: 16px; text-align: center; font-weight: 800; text-decoration: none; }
 
-        .live-widgets {
-            position: fixed; bottom: calc(20px + var(--safe-bottom)); right: 20px;
-            display: flex; flex-direction: column; gap: 10px; z-index: 999;
-        }
-        .widget-badge {
-            background: rgba(0,0,0,0.85); backdrop-filter: blur(10px);
-            color: white; padding: 12px 20px; border-radius: 30px;
-            font-weight: 700; font-size: 0.85rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
+        .live-widgets { position: fixed; bottom: calc(20px + var(--safe-bottom)); right: 20px; z-index: 999; }
+        .widget-badge { background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); color: white; padding: 12px 20px; border-radius: 30px; font-weight: 700; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 
         /* Modals */
-        .modal {
-            display: none; position: fixed; inset: 0; z-index: 1000;
-            background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
-            align-items: center; justify-content: center;
-        }
+        .modal { display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
         .modal.open { display: flex; }
-        .modal-content {
-            background: white; width: 90%; max-width: 400px;
-            padding: 30px; border-radius: 24px;
-        }
-        .input-group { margin-bottom: 15px; }
-        .input-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 12px; font-size: 1rem; }
-        .modal-actions { display: flex; gap: 10px; margin-top: 20px; }
+        .modal-content { background: white; width: 90%; max-width: 400px; padding: 30px; border-radius: 24px; }
 
         @media(max-width:600px){ h1 { font-size: 2.8rem; } }
     </style>
@@ -216,53 +185,98 @@
 
     <nav class="nav-strip">
         <a href="#wallet" class="nav-item">💰 Wallet</a>
+        <a href="#activities" class="nav-item">✨ Fun</a>
         <a href="#tokyo" class="nav-item">🗼 Tokyo</a>
         <a href="#osaka" class="nav-item">🐙 Osaka</a>
-        <a href="#emergency" class="nav-item" style="color:#FF3B30;">🆘 Help</a>
     </nav>
 
     <div class="container">
 
         <!-- WALLET -->
         <div id="wallet" class="wallet-card">
-            <div class="wallet-header">
-                <div><div style="font-size:0.8rem; opacity:0.7;">REMAINING</div><div class="wallet-balance" id="displayBalance">¥0</div></div>
-                <div style="font-size:1.5rem;" id="displayBalanceINR">₹0</div>
+            <div style="display:flex; justify-content:space-between; margin-bottom:20px;">
+                <div><div style="font-size:0.8rem; opacity:0.7;">REMAINING</div><div style="font-size:2.5rem; font-weight:800;" id="displayBalance">¥0</div></div>
+                <div style="font-size:1.5rem; text-align:right;" id="displayBalanceINR">₹0</div>
             </div>
             <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
                 <button class="wallet-btn" onclick="openBudgetModal()">Set Budget</button>
-                <button class="wallet-btn add" onclick="openExpenseModal()">+ Expense</button>
+                <button class="wallet-btn" style="background:var(--success);" onclick="openExpenseModal()">+ Expense</button>
             </div>
             <div id="expenseList" style="margin-top:20px; max-height:150px; overflow-y:auto; font-size:0.9rem;"></div>
         </div>
 
-        <!-- EMERGENCY -->
-        <h2 id="emergency" style="text-align:center; font-family:'Zen Maru Gothic'; font-weight:900;">🆘 EMERGENCY</h2>
-        <div class="card" style="border: 2px solid #FF3B30;">
-            <div class="emergency-grid">
-                <a href="tel:110" class="ems-btn">👮‍♂️ 110</a>
-                <a href="tel:119" class="ems-btn">🚑 119</a>
+        <!-- NEW: SHOPPING HAUL -->
+        <h2 id="activities" style="text-align:center; font-family:'Zen Maru Gothic';">🎒 SHOPPING & VIBES</h2>
+        
+        <div class="card">
+            <img src="assets/souvenirs.png" class="card-img-top" alt="Souvenirs">
+            <span class="tag">MUST BUY Checklist</span>
+            <h3>Shopping Haul</h3>
+            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 's1')"><span>🍌 <strong>Tokyo Banana</strong> (Airport)</span></div>
+            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 's2')"><span>🍵 <strong>Matcha KitKats</strong> (Don Quijote)</span></div>
+            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 's3')"><span>🥃 <strong>Edo Kiriko Glass</strong> (Asakusa)</span></div>
+            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 's4')"><span>💄 <strong>Japanese Sunscreen</strong> (Biore UV)</span></div>
+            <div class="checklist-item"><input type="checkbox" onchange="toggleCheck(this, 's5')"><span>⛩️ <strong>Omamori</strong> (Good Luck Charm)</span></div>
+        </div>
+
+        <!-- NEW: EXPERIENCE -->
+        <div class="card">
+            <img src="assets/tea.png" class="card-img-top" alt="Tea Ceremony">
+            <span class="tag">CULTURAL DEEP DIVE</span>
+            <h3>Unforgettable Moments</h3>
+            <div class="timeline-item">
+                <div class="time-badge" style="background:#EFEBE9;">🍵</div>
+                <div class="content">
+                    <strong>Tea Ceremony in Kimono</strong>.
+                    <br><span style="font-size:0.9rem; color:#666;">Recommendation: <a href="https://mai-ko.com/" class="map-link">Maikoya Kyoto</a>.</span>
+                </div>
             </div>
-            <div style="margin-top:15px;">
-                <button class="wallet-btn" style="background:#ddd; color:black;" onclick="alert('Embassy of India\n+81-3-3262-2391')">📞 Indian Embassy</button>
+            <div class="timeline-item">
+                <div class="time-badge" style="background:#EFEBE9;">🏺</div>
+                <div class="content">
+                    <strong>Kintsugi Workshop</strong> (Gold Repair).
+                    <br><span style="font-size:0.9rem; color:#666;">Try: <a href="https://pojstudio.com/" class="map-link">POJ Studio</a>.</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- NEW: STAY TIPS -->
+        <div class="card" style="background:#F0F4F8;">
+            <h3>🏡 Stay Tips: Shinjuku or Shibuya?</h3>
+            <p style="font-size:0.9rem;">
+                <strong>🗼 Shinjuku:</strong> Best for transport & neon nightlife. Can be chaotic.
+                <br><strong>🐕 Shibuya:</strong> Younger vibe, trendy shopping, slightly more walkable.
+            </p>
+            <div style="background:#FFF3CD; padding:10px; border-radius:8px; font-size:0.85rem; margin-top:10px;">
+                ⚠️ <strong>Airbnb Tip:</strong> Japanese walls are thin. Check reviews for "noise" complaints before booking!
             </div>
         </div>
 
         <!-- TOKYO -->
         <div id="tokyo" class="city-header"><h2 class="city-title">🗼 TOKYO</h2></div>
 
+        <!-- NEW: CAFE HOPPING -->
         <div class="card">
-            <span class="tag">DAY 1</span>
-            <h3>Arrival</h3>
+            <img src="assets/cafe.png" class="card-img-top" alt="Cafe">
+            <span class="tag">DAY 2 • HARAJUKU VIBES</span>
+            <h3>Cafe Hopping</h3>
             <div class="timeline-item">
-                <div class="time-badge">20:00</div>
+                <div class="time-badge">☕️</div>
                 <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Tsurutontan+Shinjuku" class="map-link">Tsurutontan Udon</a></strong>.
-                    <div class="dish-badge">🍜 Creamy Mentaiko</div>
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Reissue+Harajuku" class="map-link">Reissue</a></strong>.
+                    <div class="dish-badge">🎨 3D Latte Art</div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="time-badge">🌸</div>
+                <div class="content">
+                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Aoyama+Flower+Market+Tea+House" class="map-link">Aoyama Flower Market</a></strong>.
+                    <br><span style="font-size:0.9rem;">Tea house inside a greenhouse.</span>
                 </div>
             </div>
         </div>
-        
+
+        <!-- Existing Days with History Links -->
         <div class="card">
             <span class="tag">DAY 2</span>
             <h3>Culture & Trends</h3>
@@ -271,12 +285,6 @@
                 <div class="content">
                     <strong><a href="https://www.google.com/maps/search/?api=1&query=Meiji+Shrine" class="map-link">Meiji Shrine</a></strong>.
                     <a href="https://en.wikipedia.org/wiki/Meiji_Shrine" class="wiki-btn">📖 History</a>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="time-badge">11:00</div>
-                <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Gariguette+Omotesando" class="map-link">Gariguette</a></strong>.
                 </div>
             </div>
         </div>
@@ -303,32 +311,8 @@
         <div id="osaka" class="city-header"><h2 class="city-title">🐙 OSAKA</h2></div>
 
         <div class="card">
-            <span class="tag">DAY 4</span>
-            <h3>Shinkansen</h3>
-            <div class="timeline-item">
-                <div class="time-badge">16:00</div>
-                <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha" class="map-link">Fushimi Inari Shrine</a></strong>.
-                    <a href="https://en.wikipedia.org/wiki/Fushimi_Inari-taisha" class="wiki-btn">📖 History</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <span class="tag">DAY 5</span>
-            <h3>Kyoto</h3>
-            <div class="timeline-item">
-                <div class="time-badge">14:30</div>
-                <div class="content">
-                    <strong><a href="https://www.google.com/maps/search/?api=1&query=Kinkaku-ji" class="map-link">Kinkaku-ji (Golden Pavilion)</a></strong>.
-                    <a href="https://en.wikipedia.org/wiki/Kinkaku-ji" class="wiki-btn">📖 History</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
             <span class="tag">DAY 6</span>
-            <h3>Hiroshima</h3>
+            <h3>History Day</h3>
             <div class="timeline-item">
                 <div class="time-badge">09:00</div>
                 <div class="content">
@@ -357,39 +341,41 @@
                 </div>
             </div>
         </div>
-        
-        <div style="text-align:center; padding:50px; color:#aaa; font-size:0.8rem;">
-            Safe Travels! ✈️🇯🇵
+
+        <!-- EMERGENCY -->
+        <h2 style="text-align:center; margin-top:40px;">🆘 HELP</h2>
+        <div class="card" style="border: 2px solid #FF3B30;">
+            <div class="emergency-grid">
+                <a href="tel:110" class="ems-btn">👮‍♂️ 110</a>
+                <a href="tel:119" class="ems-btn">🚑 119</a>
+            </div>
+            <div style="margin-top:15px;"><button class="wallet-btn" style="background:#ddd; color:black;" onclick="alert('Embassy of India\n+81-3-3262-2391')">📞 Indian Embassy</button></div>
         </div>
+
+        <div style="text-align:center; padding:50px; color:#aaa; font-size:0.8rem;">Safe Travels! ✈️🇯🇵</div>
 
     </div>
 
-    <!-- MODALS for Wallet -->
+    <!-- MODALS -->
     <div id="budgetModal" class="modal">
         <div class="modal-content">
             <h3>Set Budget (JPY)</h3>
-            <div class="input-group"><input type="number" id="budgetInput" placeholder="150000"></div>
-            <div class="modal-actions">
-                <button class="wallet-btn" style="background:#ddd; color:black;" onclick="closeModal('budgetModal')">Cancel</button>
-                <button class="wallet-btn add" onclick="saveBudget()">Save</button>
-            </div>
+            <input type="number" id="budgetInput" placeholder="150000" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:8px;">
+            <div style="display:flex; gap:10px;"><button class="wallet-btn" style="background:#ddd; color:black;" onclick="closeModal('budgetModal')">Cancel</button><button class="wallet-btn" style="background:var(--success);" onclick="saveBudget()">Save</button></div>
         </div>
     </div>
 
     <div id="expenseModal" class="modal">
         <div class="modal-content">
             <h3>Add Expense</h3>
-            <div class="input-group"><input type="number" id="exAmount" placeholder="Amount (¥)"></div>
-            <div class="input-group"><input type="text" id="exNote" placeholder="Note"></div>
-            <div class="modal-actions">
-                <button class="wallet-btn" style="background:#ddd; color:black;" onclick="closeModal('expenseModal')">Cancel</button>
-                <button class="wallet-btn add" onclick="addExpense()">Add</button>
-            </div>
+            <input type="number" id="exAmount" placeholder="Amount (¥)" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:8px;">
+            <input type="text" id="exNote" placeholder="Note" style="width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:8px;">
+            <div style="display:flex; gap:10px;"><button class="wallet-btn" style="background:#ddd; color:black;" onclick="closeModal('expenseModal')">Cancel</button><button class="wallet-btn" style="background:var(--success);" onclick="addExpense()">Add</button></div>
         </div>
     </div>
 
     <script>
-        // Wallet Logic Same as Previous Step
+        // Logic Preserved
         let budget = localStorage.getItem('japan_budget') || 0;
         let expenses = JSON.parse(localStorage.getItem('japan_expenses')) || [];
         let inrRate = 0.58;
@@ -397,13 +383,10 @@
         function updateWalletUI() {
             const spent = expenses.reduce((a, b) => a + Number(b.amount), 0);
             const remaining = budget - spent;
-            
             document.getElementById('displayBalance').innerText = `¥${remaining.toLocaleString()}`;
             document.getElementById('displayBalanceINR').innerText = `₹${(remaining * inrRate).toFixed(0)}`;
-
             const list = document.getElementById('expenseList');
             list.innerHTML = expenses.length === 0 ? '<div style="opacity:0.5; text-align:center;">No expenses yet</div>' : '';
-            
             expenses.slice().reverse().forEach((ex) => {
                 const div = document.createElement('div');
                 div.style.cssText = "display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.1);";
@@ -411,26 +394,20 @@
                 list.appendChild(div);
             });
         }
-
-        function saveBudget() {
-            const val = document.getElementById('budgetInput').value;
-            if(val) { budget = val; localStorage.setItem('japan_budget', budget); updateWalletUI(); closeModal('budgetModal'); }
-        }
-
-        function addExpense() {
-            const amt = document.getElementById('exAmount').value;
-            const note = document.getElementById('exNote').value;
-            if(amt && note) {
-                expenses.push({ amount: amt, note: note });
-                localStorage.setItem('japan_expenses', JSON.stringify(expenses));
-                updateWalletUI(); closeModal('expenseModal');
-            }
-        }
+        function saveBudget() { const val = document.getElementById('budgetInput').value; if(val) { budget = val; localStorage.setItem('japan_budget', budget); updateWalletUI(); closeModal('budgetModal'); } }
+        function addExpense() { const amt = document.getElementById('exAmount').value; const note = document.getElementById('exNote').value; if(amt && note) { expenses.push({ amount: amt, note: note }); localStorage.setItem('japan_expenses', JSON.stringify(expenses)); updateWalletUI(); closeModal('expenseModal'); } }
+        function toggleCheck(el, key) { localStorage.setItem('check_' + key, el.checked); el.parentElement.classList.toggle('checked', el.checked); }
         function openBudgetModal() { document.getElementById('budgetModal').classList.add('open'); }
         function openExpenseModal() { document.getElementById('expenseModal').classList.add('open'); }
         function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
         window.onload = async () => {
+            // Restore Checks
+            ['s1', 's2', 's3', 's4', 's5'].forEach(k => {
+                const val = localStorage.getItem('check_' + k) === 'true';
+                const el = document.querySelector(`input[onchange*="'${k}'"]`);
+                if(el) { el.checked = val; if(val) el.parentElement.classList.add('checked'); }
+            });
             try { const r = await fetch('https://api.exchangerate-api.com/v4/latest/JPY'); const d = await r.json(); inrRate = d.rates.INR; } catch(e) {}
             updateWalletUI();
             try { const r = await fetch('https://api.open-meteo.com/v1/forecast?latitude=35.36&longitude=138.72&current=cloud_cover'); const d = await r.json(); document.getElementById('fujiStatus').innerText = d.current.cloud_cover < 30 ? "Clear 🟢" : "Cloudy ☁️"; } catch(e) {}
